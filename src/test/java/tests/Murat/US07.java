@@ -30,7 +30,7 @@ public class US07 {
         softAssert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://qa.easybusticket.com/blog"));
 
         //4 - The visitor sees the Blog text in the body section.
-        //softAssert.assertTrue();
+        //softAssert.assertTrue(); //kamil Koçqweqweqqweqwe
 
         //5 - Visitor verifies that they are on the blog page.
     }
