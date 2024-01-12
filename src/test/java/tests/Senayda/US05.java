@@ -2,6 +2,7 @@ package tests.Senayda;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.visitor.VisitorAbout;
 import pages.visitor.VisitorHomePage;
 import utilities.ConfigReader;
