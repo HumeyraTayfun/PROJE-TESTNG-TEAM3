@@ -30,6 +30,5 @@ public class UserSignIn {
     @FindBy(xpath = "(//li)[3]")
     public WebElement HeaderDashboard;
 
-    @FindBy(xpath = "(//a[@href='javascript::void()'])[2]")
-    public WebElement SupportRequestButton;
+
 }
