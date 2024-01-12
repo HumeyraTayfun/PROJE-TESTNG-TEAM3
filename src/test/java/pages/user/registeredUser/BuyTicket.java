@@ -13,56 +13,68 @@ public class BuyTicket {
     @FindBy(xpath = "//*[@class='left-content']/li[1]/a")
     public WebElement HeaderPhone;
 
-    @FindBy(xpath = "//*[@class='left-content']/li[2]/a")
-    public WebElement HeaderEmail;
+    @FindBy (xpath = "//div[@class='ticket-wrapper']")
+    public WebElement ticketOptions;
 
-    @FindBy(xpath = "//*[@class='logo']/a")
-    public WebElement HeaderLogo;
+    @FindBy (xpath = "//a[@class='btn btn--base']")
+    public WebElement selectSeatButton;
 
-    @FindBy(xpath = "//*[text()='Dashboard']")
-    public WebElement HeaderDashboard;
+    @FindBy (xpath = "//input[@id='female']")
+    public WebElement checkBoxFemale;
 
-    @FindBy(xpath = "//*[text()='Booking']")
-    public WebElement HeaderBooking;
+    @FindBy (xpath = "(//span[@class='seat'])[1]")
+    public WebElement selectSeatNumberButton;
 
-    @FindBy(xpath = "//*[text()='Support Request']")
-    public WebElement HeaderSupportRequest;
+    @FindBy (xpath = "//*[text()='NaN USD']")
+    public WebElement ticketPriceDisplay;
 
-    @FindBy(xpath = "(//*[text()='Profile'])[1]")
-    public WebElement HeaderProfile;
+    @FindBy (xpath = "(//button[@type='submit'])[1]")
+    public WebElement continueButton;
 
-    @FindBy(xpath = "//*[text()='Buy Ticket']")
-    public WebElement HeaderBuyTicket;
+    @FindBy (xpath = "(//button[@type='submit'])[2]")
+    public WebElement confirmButton;
 
-    @FindBy(xpath = "//*[text()='Booking History']")
-    public WebElement HeaderBookingHistory;
+    @FindBy (xpath = "//h5[@class='title']")
+    public WebElement paymentText;
 
-    @FindBy(xpath = "//*[text()='Create New']")
-    public WebElement HeaderCreateNewSupportRequest;
+    @FindBy (xpath = "(//a[@href='javascript:void(0)'])[1]")
+    public WebElement payNowButton;
 
-    @FindBy(xpath = "//*[text()='Requests']")
-    public WebElement HeaderMySupportRequests;
+    @FindBy (xpath = "//h2[@class='title']")
+    public WebElement paymentPreviewPage;
 
-    @FindBy(xpath = "(//*[text()='Profile'])[2]")
-    public WebElement HeaderMyProfile;
+    @FindBy (xpath = "//a[@href='https://qa.easybusticket.com/user/ticket-booking/payment/confirm']")
+    public WebElement payNowButtonLast;
 
-    @FindBy(xpath = "//*[text()='Change Password']")
-    public WebElement HeaderChangePassword;
+    @FindBy (xpath = "//input[@type='text']")
+    public WebElement nameOnCardButton;
 
-    @FindBy(xpath = "//*[text()='Logout']")
-    public WebElement HeaderLogout;
+    @FindBy (xpath = "(//input[@type='tel'])[1]")
+    public WebElement CardNumberButton;
 
-    @FindBy(xpath = "//*[@name='pickup']")
-    public WebElement PickupPointSelect;
+    @FindBy (xpath = "(//input[@class='form--control input-sz custom-input jp-card-invalid'])[1]")
+    public WebElement expirationDateButton;
 
-    @FindBy(xpath = "//*[@name='destination']")
-    public WebElement DroppingPointSelect;
+    @FindBy (xpath = "(//input[@type='tel'])[3]")
+    public WebElement cvcButton;
 
-    @FindBy(xpath = "//*[@name='date_of_journey']")
-    public WebElement DateOfJourneyInput;
+    @FindBy (xpath = " //button[@class='btn btn--base h-40']")
+    public WebElement stripePaymentPayButton;
 
-    @FindBy(xpath = "//*[text()='Find Tickets']")
-    public WebElement FindTicketsButton;
+    @FindBy (xpath = "//section[@class='dashboard-section padding-top padding-bottom']")
+    public WebElement ticketInformationTable;
+
+    @FindBy (xpath = "//span[@class='badge badge--success']")
+    public WebElement ticketStatus;
+
+    @FindBy (xpath = "//i[@class='las la-print']")
+    public WebElement printTicketButton;
+
+    @FindBy (xpath = "//div[@class='ticket-inner']")
+    public WebElement printingPage;
+
+    @FindBy (xpath = "//button[@type='button']")
+    public WebElement downloadTicketButton;
 
     @FindBy(xpath = "(//*[@name='fleetType[]'])[1]")
     public WebElement VehicleTypeCheckbox;
@@ -70,42 +82,4 @@ public class BuyTicket {
     @FindBy(xpath = "(//*[@name='routes[]'])[1]")
     public WebElement RouteCheckbox;
 
-    @FindBy(xpath = "//*[@class='social-icons']/li[1]/a")
-    public WebElement TwitterIcon;
-
-    @FindBy(xpath = "//*[@class='social-icons']/li[2]/a")
-    public WebElement FacebookIcon;
-
-    @FindBy(xpath = "//*[@class='social-icons']/li[3]/a")
-    public WebElement YoutubeIcon;
-
-    @FindBy(xpath = "//*[@class='social-icons']/li[4]/a")
-    public WebElement InstagramIcon;
-
-    @FindBy(xpath = "//*[text()='About']")
-    public WebElement FooterAbout;
-
-    @FindBy(xpath = "//*[text()='FAQs']")
-    public WebElement FooterFAQs;
-
-    @FindBy(xpath = "//*[text()='Blog']")
-    public WebElement FooterBlog;
-
-    @FindBy(xpath = "//*[text()='Contact']")
-    public WebElement FooterContact;
-
-    @FindBy(xpath = "//*[text()='Privacy Policy']")
-    public WebElement FooterPrivacyPolicy;
-
-    @FindBy(xpath = "//*[text()='Terms and Conditions']")
-    public WebElement FooterTermsAndConditions;
-
-    @FindBy(xpath = "//*[text()='Ticket Policies']")
-    public WebElement FooterTicketPolicies;
-
-    @FindBy(xpath = "//*[@class='footer-contacts']/li[2]/a")
-    public WebElement FooterPhone;
-
-    @FindBy(xpath = "//*[@class='footer-contacts']/li[3]/a")
-    public WebElement FooterEmail;
 }
