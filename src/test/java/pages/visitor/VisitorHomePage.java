@@ -104,4 +104,29 @@ public class VisitorHomePage {
     @FindBy(xpath = "//*[text()='Ticket Policies']")
     public WebElement Ticketpolicies;
 
+    @FindBy(xpath = "(//*[@*='widget-title'])[3]")
+    public WebElement footercontacınfo;
+
+    @FindBy(xpath = "//*[@*='las la-phone']")
+    public WebElement phonealert;
+
+    @FindBy(xpath = "//*[@*='las la-envelope-open']")
+    public WebElement emailalert;
+
+    @FindBy(xpath = "//*[@*='address']")
+    public WebElement harıtaaddress;
+
+    @FindBy(xpath = "//*[text()='Send Us Message']")
+    public WebElement  senusmessage;
+
+    @FindBy(xpath = "//*[@id='name']")
+    public WebElement messagename;
+
+    @FindBy(xpath = "//*[@id='email']")
+    public WebElement messageemail;
+
+    @FindBy(xpath = "//*[@id='subject']")
+    public WebElement mesagesubject;
+
+
 }
