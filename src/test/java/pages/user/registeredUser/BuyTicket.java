@@ -7,10 +7,11 @@ import utilities.Driver;
 
 public class BuyTicket {
     public BuyTicket(){
-        PageFactory.initElements(Driver.getDriver(),this);}
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
 
-    @FindBy(xpath = "//div[@class='ticket-item']")
-    public WebElement ticketPurchaseScreen;
+    @FindBy(xpath = "//*[@class='left-content']/li[1]/a")
+    public WebElement HeaderPhone;
 
     @FindBy (xpath = "//div[@class='ticket-wrapper']")
     public WebElement ticketOptions;
@@ -75,12 +76,10 @@ public class BuyTicket {
     @FindBy (xpath = "//button[@type='button']")
     public WebElement downloadTicketButton;
 
+    @FindBy(xpath = "(//*[@name='fleetType[]'])[1]")
+    public WebElement VehicleTypeCheckbox;
 
-
-
-
-
-
-
+    @FindBy(xpath = "(//*[@name='routes[]'])[1]")
+    public WebElement RouteCheckbox;
 
 }
