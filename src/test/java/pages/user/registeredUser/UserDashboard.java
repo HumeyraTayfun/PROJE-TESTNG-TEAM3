@@ -41,4 +41,7 @@ public class UserDashboard {
 
     @FindBy (xpath = "(//a[@href='https://qa.easybusticket.com/tickets'])[1]")
     public WebElement buyTicketButton;
+
+    @FindBy(xpath = "//*[*='Create New']")
+    public WebElement CreateNewButton;
 }
