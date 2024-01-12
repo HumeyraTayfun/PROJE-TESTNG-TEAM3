@@ -105,28 +105,30 @@ public class VisitorHomePage {
     public WebElement Ticketpolicies;
 
     @FindBy(xpath = "(//*[@*='widget-title'])[3]")
-    public WebElement footercontacınfo;
+    public WebElement footerContacınfo;
 
     @FindBy(xpath = "//*[@*='las la-phone']")
-    public WebElement phonealert;
+    public WebElement phoneAlert;
 
     @FindBy(xpath = "//*[@*='las la-envelope-open']")
-    public WebElement emailalert;
+    public WebElement emailAlert;
 
     @FindBy(xpath = "//*[@*='address']")
-    public WebElement harıtaaddress;
+    public WebElement harıtaAddress;
 
     @FindBy(xpath = "//*[text()='Send Us Message']")
-    public WebElement  senusmessage;
+    public WebElement  sendUsMessageButton;
 
     @FindBy(xpath = "//*[@id='name']")
-    public WebElement messagename;
+    public WebElement messageName;
 
     @FindBy(xpath = "//*[@id='email']")
-    public WebElement messageemail;
+    public WebElement messageEmail;
 
     @FindBy(xpath = "//*[@id='subject']")
-    public WebElement mesagesubject;
+    public WebElement messageSubject;
 
+    @FindBy(xpath = "(//li)[3]")
+    public WebElement  HeaderDasbordLinkButton ;
 
 }

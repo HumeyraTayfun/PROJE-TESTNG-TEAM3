@@ -6,4 +6,6 @@ import utilities.Driver;
 public class VisitorBuyTicket {
     public VisitorBuyTicket(){
         PageFactory.initElements(Driver.getDriver(),this);}
+
+
 }
