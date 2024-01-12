@@ -22,10 +22,10 @@ public class BuyTicket {
     @FindBy (xpath = "//input[@id='female']")
     public WebElement checkBoxFemale;
 
-    @FindBy (xpath = "(//span[@class='seat'])[1]")
+    @FindBy (xpath = "(//span[@class='seat'])[30]")
     public WebElement selectSeatNumberButton;
 
-    @FindBy (xpath = "//*[text()='NaN USD']")
+    @FindBy (xpath = "(//div/div/span/span)[7]")
     public WebElement ticketPriceDisplay;
 
     @FindBy (xpath = "(//button[@type='submit'])[1]")
@@ -33,6 +33,9 @@ public class BuyTicket {
 
     @FindBy (xpath = "(//button[@type='submit'])[2]")
     public WebElement confirmButton;
+
+    @FindBy (xpath = "//button[@type='submit']")
+    public WebElement confirmButton2;
 
     @FindBy (xpath = "//h5[@class='title']")
     public WebElement paymentText;
@@ -63,6 +66,9 @@ public class BuyTicket {
 
     @FindBy (xpath = "//section[@class='dashboard-section padding-top padding-bottom']")
     public WebElement ticketInformationTable;
+
+    @FindBy (xpath = "//div[@class='ticket-item']")
+    public WebElement ticketPurchaseScreen;
 
     @FindBy (xpath = "//span[@class='badge badge--success']")
     public WebElement ticketStatus;

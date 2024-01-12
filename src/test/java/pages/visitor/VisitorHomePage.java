@@ -59,10 +59,10 @@ public class VisitorHomePage {
     @FindBy(xpath = "//*[text()='Allow']")
     public WebElement cookiesAllow;
 
-    @FindBy(xpath = "(//*[@*='select2-selection select2-selection--single'])[1]")
+    @FindBy(xpath = "//select[@name='pickup']")
     public WebElement dropDownPickupPoint;
 
-    @FindBy(xpath = "(//*[@*='select2-selection select2-selection--single'])[2]")
+    @FindBy(xpath = "//select[@name='destination']")
     public WebElement dropDownDroppingPoint;
 
     @FindBy(xpath = "//*[@*='date_of_journey']")

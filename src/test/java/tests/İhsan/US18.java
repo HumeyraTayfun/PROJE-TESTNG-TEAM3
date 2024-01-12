@@ -62,6 +62,6 @@ public class US18 {
         String actualText = changePassword.labelPasswordAlert.getText();
         String expectedText = "Password changes succesfully";
         softAssert.assertEquals(actualUrl, expectedUrl, "'Password changes succesfully' text DID NOT appear!");
-        DENEME
+
     }
 }
