@@ -27,9 +27,23 @@ public class UserSignIn {
     @FindBy(xpath = "//*[text()='Forgot Password?']")
     public WebElement linkForgotPassword;
 
+
+    @FindBy(xpath = "//*[text()='Reset Password']")
+    public WebElement labelResetPassword;
+
+    @FindBy(xpath = "(//*[@id='type'])[1]")
+    public WebElement selectOneBox;
+
+    @FindBy(xpath = "//*[@class='form--control ']")
+    public WebElement emailAdressBox;
+
+    @FindBy(xpath = "//*[text()='Send Password Code']")
+    public WebElement sendPasswordCodeButton;
+
     @FindBy(xpath = "(//li)[3]")
     public WebElement HeaderDashboard;
 
     @FindBy(xpath = "(//a[@href='javascript::void()'])[2]")
     public WebElement SupportRequestButton;
+
 }
