@@ -27,7 +27,6 @@ public class UserSignIn {
     @FindBy(xpath = "//*[text()='Forgot Password?']")
     public WebElement linkForgotPassword;
 
-
     @FindBy(xpath = "//*[text()='Reset Password']")
     public WebElement labelResetPassword;
 
@@ -45,5 +44,4 @@ public class UserSignIn {
 
     @FindBy(xpath = "(//a[@href='javascript::void()'])[2]")
     public WebElement SupportRequestButton;
-
 }
