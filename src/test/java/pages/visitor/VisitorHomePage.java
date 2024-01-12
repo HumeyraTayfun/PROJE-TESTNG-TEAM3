@@ -104,4 +104,7 @@ public class VisitorHomePage {
     @FindBy(xpath = "//*[text()='Ticket Policies']")
     public WebElement Ticketpolicies;
 
+    @FindBy(xpath = "(//li)[3]")
+    public WebElement  HeaderDasbordLinkButton ;
+
 }
