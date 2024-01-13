@@ -2,6 +2,7 @@ package tests.Senayda;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,6 +15,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class US13 {
 
     @Test
@@ -23,6 +26,7 @@ public class US13 {
         UserDashboard userDashboard = new UserDashboard();
         UserSignIn userSignIn = new UserSignIn();
         BuyTicket buyTicket = new BuyTicket();
+        Actions action = new Actions(Driver.getDriver());
         SoftAssert softAssert = new SoftAssert();
 
         // 1- User go to the "https://qa.easybusticket.com"
@@ -60,7 +64,7 @@ public class US13 {
         Assert.assertTrue(userDashboard.linkProfile.isDisplayed());
 
         // 12- In the booking menu, locate and click on the "Buy Ticket" link
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         userDashboard.bookingButton.click();
         userDashboard.buyTicketButton.click();
 
@@ -89,31 +93,36 @@ public class US13 {
 
         // 17- User clicks on the "Select Seat" button for a chosen ticket option
         buyTicket.selectSeatButton.click();
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
         ReusableMethods.bekle(1);
 
        // 18- User selects a gender and chooses a seat on the seat selection screen
-        buyTicket.checkBoxFemale.click();
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
+
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) Driver.getDriver();
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
+                buyTicket.checkBoxFemale);
         ReusableMethods.bekle(1);
+        buyTicket.checkBoxFemale.click();
+        buyTicket.selectSeatNumberButton.click();
 
         // 19- User selects one of the available seats
-        buyTicket.selectSeatNumberButton.click();
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
+
+        action.sendKeys(Keys.PAGE_DOWN);
+        action.sendKeys(Keys.PAGE_DOWN);
+        action.sendKeys(Keys.PAGE_DOWN);
+
+
         ReusableMethods.bekle(1);
 
-        // 20- User confirms the ticket price is displayed
+        // 22- User confirms the ticket price is displayed
         Assert.assertTrue(buyTicket.ticketPriceDisplay.isDisplayed());
 
-        // 21-  User clicks on the "Continue" button to proceed
+        // 20-  User clicks on the "Continue" button to proceed
         buyTicket.continueButton.click();
 
-        // 22- User clicks on "Confirm" button
+        // 21- User clicks on "Confirm" button
+
         buyTicket.confirmButton.click();
+
 
         // 23- User verifies the displayed payment amounts on the subsequent page
         Assert.assertTrue(buyTicket.paymentText.isDisplayed());
@@ -121,14 +130,19 @@ public class US13 {
         // 24- User ensures the "Pay Now" button is present and functional
         // 25- User clicks on the "Pay Now" button
         Assert.assertTrue(buyTicket.payNowButton.isDisplayed());
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
+                buyTicket.payNowButton);
+        ReusableMethods.bekle(1);
         buyTicket.payNowButton.click();
 
         // 26- User click on "Confirm" button to payment
-        buyTicket.confirmButton.click();
+        buyTicket.confirmButton2.click();
 
         // 27- User confirms redirect to the payment screen
         Assert.assertTrue(buyTicket.paymentPreviewPage.isDisplayed());
-        buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
+                buyTicket.payNowButtonLast);
+        ReusableMethods.bekle(1);
 
         // 28- User clicks again "Pay now" button to continue
         buyTicket.payNowButtonLast.click();
@@ -140,6 +154,9 @@ public class US13 {
         buyTicket.cvcButton.sendKeys(ConfigReader.getProperty("senaydaCvcCode"));
 
         // 30- User submits the payment
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
+                buyTicket.stripePaymentPayButton);
+        ReusableMethods.bekle(1);
         buyTicket.stripePaymentPayButton.click();
 
         // 31- User ensures the payment confirmation or success message is displayed.
@@ -152,9 +169,11 @@ public class US13 {
 
         // 35- User clicks on the "Print Ticket" button next to the purchased ticket
         buyTicket.printTicketButton.click();
-
+        ReusableMethods.bekle(1);
         // 36- User verifies redirection to the ticket printing page and ensure the ticket details are correct
-        Assert.assertTrue(buyTicket.printingPage.isDisplayed());
+        actualUrl = Driver.getDriver().getCurrentUrl();
+        expectedUrl = "https://qa.easybusticket.com/user/booked-ticket/print";
+        softAssert.assertTrue(actualUrl.contains(expectedUrl), "User DID NOT display the 'Print' page!");
 
         // 37- User Download and verify the ticket
         buyTicket.printTicketButton.click();

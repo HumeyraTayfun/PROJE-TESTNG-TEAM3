@@ -116,4 +116,5 @@ public class AdminDashboard {
 
     @FindBy(xpath = "//*[text()='Login By Country']")
     public  WebElement loginByCountry;
+
 }
