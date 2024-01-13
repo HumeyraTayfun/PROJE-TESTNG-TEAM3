@@ -35,4 +35,28 @@ public class TicketPrice {
 
     @FindBy(xpath = "(//tbody/tr/td)[3]")
     public WebElement newTicketPriceElement;
+
+    @FindBy(xpath = "(//tr/td[2])[1]")
+    public WebElement routeName;
+
+    @FindBy(xpath = "(//td/button)[1]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//*[text()='Delete']")
+    public WebElement deleteConfirmButton;
+
+    @FindBy(xpath = "//*[text()='Price Deleted Successfully']")
+    public WebElement labelDelete;
+
+    @FindBy(xpath = "(//td/a)[1]")
+    public WebElement editButton;
+
+    @FindBy(xpath = "//*[@*='text']")
+    public WebElement updateBox;
+
+    @FindBy(xpath = "//*[*='Update']")
+    public WebElement updateButton;
+
+    @FindBy(xpath = "//*[text()='Price Updated Successfully']")
+    public WebElement labelUpdate;
 }
