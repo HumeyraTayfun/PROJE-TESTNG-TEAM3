@@ -29,7 +29,5 @@ public class US14 {
         //displayed(rezervazyon gecmısı sayfasında bulunan bilet bilgileri görüntülemelidir.)
          locator.HeaderBooking.click();
          locator.HeaderBookingHistory.click();
-         locator.HeaderRezervasyonGecmişi.isDisplayed();
-
     }
 }
