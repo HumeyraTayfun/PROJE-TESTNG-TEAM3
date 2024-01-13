@@ -44,4 +44,7 @@ public class UserDashboard {
 
     @FindBy(xpath = "//*[*='Create New']")
     public WebElement CreateNewButton;
+
+    @FindBy(xpath = "//a[@href='https://qa.easybusticket.com/user/profile-setting']")
+    public WebElement profileLinkDropdown;
 }
