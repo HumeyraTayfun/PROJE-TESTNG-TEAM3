@@ -32,7 +32,7 @@ public class US08 {
 
             javascriptExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 
-            visitorHomePage.footercontacınfo.click();
+            visitorHomePage.footerContacınfo.click();
             //5-User should be landed on 'Contact' page.(kullanıcı ıletsım sayfasına yonlendırılmelı)
             visitorHomePage.HeaderContact.click();
 
@@ -59,7 +59,7 @@ public class US08 {
             //5-User clicks phone number.(kullanıcı telefon numarasına tıklar)
             visitorHomePage. HeaderPhoneNumber.click();
             //6-User displays phone alert.(KULLANICI TELEFOn uyarısını  GORUR)
-            Assert.assertTrue(visitorHomePage.phonealert.isDisplayed());
+            Assert.assertTrue(visitorHomePage. phoneAlert.isDisplayed());
 
         }
         @Test
@@ -82,7 +82,7 @@ public class US08 {
             //5-User clicks e-mail string.(kullanıcı eposta dızısıne tıklar)
             visitorHomePage.HeaderEmailAddress.click();
             //6-User displays e-mail alert.(kullanıcı eposta uyarısını gorur)
-            visitorHomePage.emailalert.click();
+            visitorHomePage. emailAlert.click();
 
 
         }
@@ -101,14 +101,14 @@ public class US08 {
             //4-User fill Name, Email, Subject, Your Message boxes(Kullanıcı adı, E-posta, Konu, Mesaj kutularınızı doldurun)
 
             ReusableMethods.wait(2);
-             visitorHomePage.messagename.sendKeys(ConfigReader.getProperty("name"));
-             visitorHomePage.messageemail.sendKeys(ConfigReader.getProperty("email"));
-             visitorHomePage.mesagesubject.sendKeys(ConfigReader.getProperty("subject"));
+             visitorHomePage.messageName.sendKeys(ConfigReader.getProperty("name"));
+             visitorHomePage.messageEmail.sendKeys(ConfigReader.getProperty("email"));
+             visitorHomePage.messageSubject.sendKeys(ConfigReader.getProperty("subject"));
              ReusableMethods.wait(2);
-             visitorHomePage.senusmessage.sendKeys(ConfigReader.getProperty("Your Message"));
+             visitorHomePage.sendUsMessageButton.sendKeys(ConfigReader.getProperty("Your Message"));
              ReusableMethods.wait(2);
             //5- User clicks 'Send Message' Button
-            visitorHomePage.senusmessage.click();
+            visitorHomePage.sendUsMessageButton.click();
             //6-User should see on right top corner following message:
             //Your message has been sent .Thank you for contacting us
 
@@ -126,6 +126,6 @@ public class US08 {
            // 3-User should be landed on 'Contact' page.
             visitorHomePage.HeaderContact.click();
             //4-User should see name of company on the left top corner of the map.(Kullanıcı, haritanın sol üst köşesinde şirketin adını görmelidir.)
-            visitorHomePage.harıtaaddress.isDisplayed();
+            visitorHomePage.harıtaAddress.isDisplayed();
         }
 }
