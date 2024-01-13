@@ -537,6 +537,7 @@ public class US32 {
     public void testCase08(){
         SoftAssert softAssert = new SoftAssert();
         AdminDashboard adminDashboard = new AdminDashboard();
+        TicketPrice ticketPrice = new TicketPrice();
 
         // 1- User go to the "https://qa.easybusticket.com/admin"
         // 2- User clicks on "Username" box.
@@ -548,14 +549,71 @@ public class US32 {
         ReusableMethods.adminLogin("ihsanAdminUsername" , "ihsanAdminPassword");
 
         // 8- User clicks on "Manage Trips" menu button.
+        adminDashboard.manageTripsButton.click();
+
         // 9- User clicks on "Ticket Price" option.
+        adminDashboard.ticketPriceButton.click();
+
         // 10- User displays "Ticket Price" page.
-        // 11- User clicks on "Disable" button for the added ticket price.
-        // 12- User clicks on "Edit" button for the added ticket price.
-        // 13- User displays "Update Ticket Price" page.
-        // 14- User clicks on price box.
-        // 15- User enters a valid updated price.
-        // 16- User clicks on "Update" button.
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.easybusticket.com/admin/manage/ticket-price";
+        softAssert.assertEquals(actualUrl,expectedUrl, "User DID NOT display the 'Ticket Price' page!");
+
+        // 11- User clicks on "Delete" button for the added ticket price.
+        String routeName = ticketPrice.routeName.getText();
+        ticketPrice.deleteButton.click();
+
+        // 12- User confirms by clicking "Delete" button.
+        ticketPrice.deleteConfirmButton.click();
+        ReusableMethods.bekle(1);
+
+        // 13- User verifies that "Price Deleted Successfully" text appeared.
+        String actualText = ticketPrice.labelDelete.getText();
+        String expectedText = "Price Deleted Successfully";
+        softAssert.assertEquals(actualText, expectedText, "'Price Deleted Successfully' DID NOT appear!");
+
+        // 14- User verifies "Ticket Price " has been deleted.
+        softAssert.assertFalse(routeName.equals(ticketPrice.routeName.getText()));
+
+        // 15- User clicks on "Edit" button for the added ticket price.
+        ticketPrice.editButton.click();
+
+        // 16- User displays "Update Ticket Price" page.
+        actualUrl = Driver.getDriver().getCurrentUrl();
+        expectedUrl = "https://qa.easybusticket.com/admin/manage/ticket-price/edit";
+        softAssert.assertTrue(actualUrl.contains(expectedUrl), "User DID NOT display the 'Update Ticket Price' page!");
+
+        // 17- User clicks on price box.
+        ticketPrice.updateBox.click();
+        ticketPrice.updateBox.clear();
+
+        // 18- User enters a valid updated price.
+        ticketPrice.updateBox.sendKeys(ConfigReader.getProperty("ihsanUpdatedTicketPrice"));
+
+        // 19- User clicks on "Update" button.
+        ticketPrice.updateButton.click();
+        ReusableMethods.bekle(1);
+
+        // 20- User verifies that "Price Updated Successfully" text appeared.
+        actualText = ticketPrice.labelUpdate.getText();
+        expectedText = "Price Updated Successfully";
+        softAssert.assertEquals(actualText, expectedText, "'Price Updated Successfully' DID NOT appear!");
+
+        // 21- User clicks on "Go Back" button.
+        ticketPrice.goBackButton.click();
+
+        // 22- User displays "Ticket Price" page.
+        actualUrl = Driver.getDriver().getCurrentUrl();
+        expectedUrl = "https://qa.easybusticket.com/admin/manage/ticket-price";
+        softAssert.assertEquals(actualUrl,expectedUrl, "User DID NOT display the 'Ticket Price' page!");
+
+        // 23- User verifies that the ticket price is updated.
+        String actualUpdate = ticketPrice.newTicketPriceElement.getText();
+        String expectedUpdate = ConfigReader.getProperty("ihsanUpdatedTicketPrice") + ".00 USD";
+        softAssert.assertEquals(actualUpdate, expectedUpdate, "'Ticket Price' IS NOT updated!");
+
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 
     @Test
