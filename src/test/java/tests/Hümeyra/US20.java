@@ -27,10 +27,15 @@ public class US20 {
         Select select=new Select(userSignIn.selectOneBox);
         select.selectByValue("email");
       //  6. User clicks on username/email address and enter a valid username/email address
+        userSignIn.emailAdressBox.click();
+        userSignIn.emailAdressBox.sendKeys(ConfigReader.getProperty("humeyraSignUpEmail"));
 
        // 7. User clicks on "Send password code" button
         userSignIn.sendPasswordCodeButton.click();
        // 8. Verify that "password reset email send successfully"is visible
+        String expectedAlert="Password reset email sent successfully";
+        String actualAlert=userSignIn.alertMessageText.getText();
+        Assert.assertEquals(actualAlert,expectedAlert);//TEST PASSED
     }
 
     @Test
