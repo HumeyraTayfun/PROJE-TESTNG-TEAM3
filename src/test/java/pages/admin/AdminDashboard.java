@@ -1,5 +1,6 @@
 package pages.admin;
 
+import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -116,5 +117,51 @@ public class AdminDashboard {
 
     @FindBy(xpath = "//*[text()='Login By Country']")
     public  WebElement loginByCountry;
+
+    @FindBy (xpath = "(//button[@type='button'])[3]")
+    public WebElement fullScreenButton;
+
+    @FindBy (xpath = "//i[@class='fullscreen-close las la-compress-arrows-alt']")
+    public WebElement displayFullScreen;
+
+    @FindBy (xpath = "//i[@onclick='closeFullscreen();']")
+    public WebElement closeFullScreenPage;
+
+    @FindBy (xpath = "(//i[@class='las la-search'])[2]")
+    public WebElement searchButton;
+
+    @FindBy (xpath = "//input[@type='search']")
+    public WebElement searchText;
+
+    @FindBy (xpath = "//h6[@class='page-title']")
+    public  WebElement bookedTicketPage;
+
+    @FindBy (xpath = "//div[@id='navbar_search_result_area']")
+    public WebElement bookedTicketPageEnter;
+
+    @FindBy (xpath = "//i[@class='las la-bell text--primary']")
+    public WebElement notificationButton;
+
+    @FindBy (xpath = "//div[@class='dropdown-menu__header']")
+    public WebElement notificationHeader;
+
+    @FindBy (xpath = "//a[@class='view-all-message']")
+    public WebElement viewAllNotificationText;
+
+    @FindBy (xpath = "//a[@class='btn btn--primary']")
+    public WebElement markAllAsReadButton;
+
+    @FindBy (xpath = "//div[@class='iziToast-wrapper iziToast-wrapper-topRight']")
+    public WebElement notificationsReadSuccessfullyMessage;
+
+
+
+
+
+
+
+
+
+
 
 }
