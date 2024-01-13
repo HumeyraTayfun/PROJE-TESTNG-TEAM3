@@ -44,4 +44,7 @@ public class UserSignIn {
 
     @FindBy(xpath = "(//a[@href='javascript::void()'])[2]")
     public WebElement SupportRequestButton;
+
+    @FindBy(xpath = "//*[text()='Password reset email sent successfully']")
+    public WebElement alertMessageText;
 }
