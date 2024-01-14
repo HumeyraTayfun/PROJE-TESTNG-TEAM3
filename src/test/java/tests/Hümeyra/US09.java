@@ -145,6 +145,7 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13.Verify that user can't register
+        Driver.quitDriver();
     }
 
     @Test
@@ -189,6 +190,7 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13.Verify that user can't register
+        Driver.quitDriver();
 
     }
 
@@ -234,6 +236,7 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13.Verify that user can't register
+        Driver.quitDriver();
 
     }
 
@@ -281,6 +284,7 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13. Verify that user is in the dashboard
+        Driver.quitDriver();
 
 
     }
