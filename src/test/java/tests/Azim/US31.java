@@ -1,4 +1,90 @@
 package tests.Azim;
 
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import pages.admin.AdminDashboard;
+import utilities.Driver;
+import utilities.ReusableMethods;
+
 public class US31 {
+
+
+    @Test
+    public void test01(){
+        SoftAssert softAssert = new SoftAssert();
+        AdminDashboard adminDashboard = new AdminDashboard();
+        //1-User go to the "https://qa.easybusticket.com/admin"
+        //2-User clicks on "Username" box.
+        //3-User enters a valid username.
+        //4-User clicks on "Password" box.
+        //5-User enters a valid password.
+        //6-User clicks the "Login" button.
+        ReusableMethods.adminLogin("azimadmin","azimAdminPassword");
+        //
+
+        Driver.getDriver().quit();
+
+
+
+    }
+
+
+    @Test
+    public void test02(){
+        SoftAssert softAssert = new SoftAssert();
+        AdminDashboard adminDashboard = new AdminDashboard();
+        //1-User go to the "https://qa.easybusticket.com/admin"
+        //2-User clicks on "Username" box.
+        //3-User enters a valid username.
+        //4-User clicks on "Password" box.
+        //5-User enters a valid password.
+        //6-User clicks the "Login" button.
+        ReusableMethods.adminLogin("azimadmin","azimAdminPassword");
+        //
+
+        Driver.getDriver().quit();
+
+    }
+
+
+    @Test
+    public void test03(){
+        SoftAssert softAssert = new SoftAssert();
+        AdminDashboard adminDashboard = new AdminDashboard();
+        //1-User go to the "https://qa.easybusticket.com/admin"
+        //2-User clicks on "Username" box.
+        //3-User enters a valid username.
+        //4-User clicks on "Password" box.
+        //5-User enters a valid password.
+        //6-User clicks the "Login" button.
+        ReusableMethods.adminLogin("azimadmin","azimAdminPassword");
+        //
+
+        Driver.getDriver().quit();
+
+    }
+
+    @Test
+    public void test04(){
+        SoftAssert softAssert = new SoftAssert();
+        AdminDashboard adminDashboard = new AdminDashboard();
+        //1-User go to the "https://qa.easybusticket.com/admin"
+        //2-User clicks on "Username" box.
+        //3-User enters a valid username.
+        //4-User clicks on "Password" box.
+        //5-User enters a valid password.
+        //6-User clicks the "Login" button.
+        ReusableMethods.adminLogin("azimadmin","azimAdminPassword");
+        //
+
+        Driver.getDriver().quit();
+
+    }
+
+
+
+
+
+
+
 }
