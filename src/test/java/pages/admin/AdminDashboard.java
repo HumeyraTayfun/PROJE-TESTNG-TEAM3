@@ -1,9 +1,12 @@
 package pages.admin;
 
+import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.logging.XMLFormatter;
 
 public class AdminDashboard {
     public AdminDashboard(){
@@ -120,5 +123,70 @@ public class AdminDashboard {
 
     @FindBy(xpath = "//*[text()='Manage Users']")
     public WebElement  ManageUsers;
+    @FindBy (xpath = "(//button[@type='button'])[3]")
+    public WebElement fullScreenButton;
+
+    @FindBy (xpath = "//i[@class='fullscreen-close las la-compress-arrows-alt']")
+    public WebElement displayFullScreen;
+
+    @FindBy (xpath = "//i[@onclick='closeFullscreen();']")
+    public WebElement closeFullScreenPage;
+
+    @FindBy (xpath = "(//i[@class='las la-search'])[2]")
+    public WebElement searchButton;
+
+    @FindBy (xpath = "//input[@type='search']")
+    public WebElement searchText;
+
+    @FindBy (xpath = "//h6[@class='page-title']")
+    public  WebElement bookedTicketPage;
+
+    @FindBy (xpath = "//div[@id='navbar_search_result_area']")
+    public WebElement bookedTicketPageEnter;
+
+    @FindBy (xpath = "//i[@class='las la-bell text--primary']")
+    public WebElement notificationButton;
+
+    @FindBy (xpath = "//div[@class='dropdown-menu__header']")
+    public WebElement notificationHeader;
+
+    @FindBy (xpath = "//a[@class='view-all-message']")
+    public WebElement viewAllNotificationText;
+
+    @FindBy (xpath = "//a[@class='btn btn--primary']")
+    public WebElement markAllAsReadButton;
+
+    @FindBy (xpath = "//div[@class='iziToast-wrapper iziToast-wrapper-topRight']")
+    public WebElement notificationsReadSuccessfullyMessage;
+
+    @FindBy(xpath = "//span[@class='navbar-user__name']")
+    public WebElement loggedAdmin;
+
+    @FindBy(xpath = "(//span[@class='dropdown-menu__caption'])[1]")
+    public WebElement adminProfile;
+
+    @FindBy(xpath = "(//span[@class='dropdown-menu__caption'])[1]")
+    public WebElement adminPassword;
+
+    @FindBy(xpath = "(//span[@class='dropdown-menu__caption'])[1]")
+    public WebElement adminLogout;
+
+    @FindBy(xpath = "//*[text()='Password Setting']")
+    public WebElement adminPasswordSettings;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[1]")
+    public WebElement psPassword;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[2]")
+    public WebElement psNewPassword;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[3]")
+    public WebElement psConfirmPassword;
+
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    public WebElement saveChangesButton;
+
+    @FindBy(xpath = "//div[@class='iziToast-texts']")
+    public WebElement alertMessage;
 
 }

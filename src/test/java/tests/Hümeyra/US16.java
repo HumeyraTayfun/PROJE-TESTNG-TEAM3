@@ -30,6 +30,7 @@ public class US16 {
         supportRequests.actionButton.click();
         // 11. Verify that the details of each past request are visible
         softAssert.assertTrue(supportRequests.labelRequestMessage.isDisplayed());
+        Driver.quitDriver();
 
     }
 
@@ -58,15 +59,14 @@ public class US16 {
         supportRequests.messageBox.click();
         supportRequests.messageBox.sendKeys("bir adet yastık istiyorum");
         //12.User clicks on "Dosya Sec" button and selects a valid file from her/his folder according to allowed file extensions
-        // JavascriptExecutor javascriptExecutor = (JavascriptExecutor) Driver.getDriver();
-        //  ReusableMethods.bekle(2);
-        // javascriptExecutor.executeScript("arguments[0].scrollIntoView();",supportRequests.dosyaSecBox);
-        // ReusableMethods.bekle(2);
-        // supportRequests.dosyaSecBox.click();
-        // ReusableMethods.bekle(2);
-        // String dynamicFilePath = System.getProperty("user.home") +
-        //         "/Downloads/logo.png";
-        // supportRequests.dosyaSecBox.sendKeys(dynamicFilePath);
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) Driver.getDriver();
+        ReusableMethods.bekle(1);
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",supportRequests.dosyaSecBox);
+
+        ReusableMethods.bekle(1);
+        String dynamicFilePath = System.getProperty("user.home") +
+                "\\Downloads\\Common_Interview_Questions_.pdf";
+        supportRequests.dosyaSecBox.sendKeys(dynamicFilePath);
         // 13. Verify that folder is selected
         // 14. User clicks on plus button(+)
         // supportRequests.plusButton.click();
@@ -78,5 +78,6 @@ public class US16 {
         String expectedText="Support ticket created successfully!";
         String actualText=supportRequests.alertMessage.getText();
         softAssert.assertEquals(actualText,expectedText);//TEST PASSED
+        Driver.quitDriver();
     }
 }
