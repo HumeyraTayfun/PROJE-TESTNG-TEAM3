@@ -38,4 +38,26 @@ public class AssignedVehicle {
 
     @FindBy(xpath = "(//tbody/tr/td)[2]")
     public WebElement newVehicleElement;
+
+    @FindBy(xpath = "(//tr/td[5]/button[1])[1]")
+    public WebElement editButton;
+
+    @FindBy(xpath = "//*[text()=' Update Assigned Vehicle']")
+    public WebElement labelUpdateAssignedVehicle;
+
+    @FindBy(xpath = "(//*[@*='select2-basic select2-hidden-accessible'])[3]")
+    public WebElement dropDownUpdateTrip;
+
+    @FindBy(xpath = "(//*[@*='select2-basic select2-hidden-accessible'])[4]")
+    public WebElement dropDownUpdateVehicle;
+
+    @FindBy(xpath = "//*[text()='Update']")
+    public WebElement updateButton;
+
+    @FindBy(xpath = "//*[text()='Assigned vehicle update successfully.']")
+    public WebElement labelUpdate;
+
+    @FindBy(xpath = "(//tr/td[5]/button[2])[1]")
+    public WebElement disableButton;
+
 }

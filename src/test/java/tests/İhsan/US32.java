@@ -575,7 +575,7 @@ public class US32 {
         softAssert.assertEquals(actualText, expectedText, "'Price Deleted Successfully' DID NOT appear!");
 
         // 14- User verifies "Ticket Price " has been deleted.
-        softAssert.assertFalse(routeName.equals(ticketPrice.routeName.getText()));
+        softAssert.assertFalse(routeName.equals(ticketPrice.routeName.getText()),"'Ticket Price' IS NOT deleted.");
 
         // 15- User clicks on "Edit" button for the added ticket price.
         ticketPrice.editButton.click();
@@ -622,6 +622,7 @@ public class US32 {
     public void testCase09(){
         SoftAssert softAssert = new SoftAssert();
         AdminDashboard adminDashboard = new AdminDashboard();
+        Trip trip = new Trip();
 
         // 1- User go to the "https://qa.easybusticket.com/admin"
         // 2- User clicks on "Username" box.
@@ -644,17 +645,57 @@ public class US32 {
         softAssert.assertEquals(actualUrl, expectedUrl, "User DID NOT display the 'Trip' page!");
 
         // 11- User clicks on "Disable" button for the added trip.
-        // 12- User clicks on "Edit" button for the added trip.
-        // 13- User displays "Update Trip" page.
-        // 14- User clicks on "Route" menu.
-        // 15- User selects an updated option.
-        // 16- User clicks on "Update" button.
+        trip.disableButton.click();
+
+        // 12- User clicks on "Disable" option.
+        trip.disableConfirmButton.click();
+        ReusableMethods.bekle(1);
+
+        // 13- User verifies that "Trip disabled successfully" text appeared.
+        String actualText = trip.labelDisable.getText();
+        String expectedText = "Trip disabled successfully";
+        softAssert.assertEquals(actualText, expectedText, "'Trip disabled successfully' DID NOT appear!");
+
+        // 14- User verifies that the "Trip" is disabled.
+        actualText = trip.labelDisabled.getText();
+        expectedText = "Disabled";
+        softAssert.assertEquals(actualText, expectedText, "'Trip' IS NOT disabled.");
+
+        // 15- User clicks on "Edit" button for the added trip.
+        trip.editButton.click();
+        ReusableMethods.bekle(1);
+
+        // 16- User displays "Update Trip" page.
+        String actualPage = trip.labelUpdateTrip.getText();
+        String expectedPage = "Update Trip";
+        softAssert.assertEquals(actualPage, expectedPage, "User DID NOT display the 'Update Trip' page!");
+
+        // 17- User clicks on "Title" box.
+        // 18- User enters an updated title.
+        trip.titleBox.click();
+        trip.titleBox.clear();
+        trip.titleBox.sendKeys(ConfigReader.getProperty("ihsanUpdatedTripTitle"));
+
+        // 19- User clicks on "Update" button.
+        trip.updateButton.click();
+
+        // 20- User clicks on close button.
+        trip.closeButton.click();
+
+        // 21- User verifies that the trip is updated.
+        String actualUpdate = trip.newTripElement.getText();
+        String expectedUpdate = ConfigReader.getProperty("ihsanUpdatedTripTitle");
+        softAssert.assertEquals(actualUpdate, expectedUpdate, "'Trip' IS NOT updated!");
+
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 
     @Test
     public void testCase10(){
         SoftAssert softAssert = new SoftAssert();
         AdminDashboard adminDashboard = new AdminDashboard();
+        AssignedVehicle assignedVehicle = new AssignedVehicle();
 
         // 1- User go to the "https://qa.easybusticket.com/admin"
         // 2- User clicks on "Username" box.
@@ -666,17 +707,53 @@ public class US32 {
         ReusableMethods.adminLogin("ihsanAdminUsername" , "ihsanAdminPassword");
 
         // 8- User clicks on "Manage Trips" menu button.
+        adminDashboard.manageTripsButton.click();
+
         // 9- User clicks on "Assigned Vehicle" option.
+        adminDashboard.assignedVehicleButton.click();
+
         // 10- User displays "Assigned Vehicle" page.
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.easybusticket.com/admin/manage/assigned-vehicle";
+        softAssert.assertEquals(actualUrl, expectedUrl, "User DID NOT display the 'Assigned Vehicle' page!");
+
         // 11- User clicks on "Edit" button for the added vehicle.
+        assignedVehicle.editButton.click();
+        ReusableMethods.bekle(1);
+
         // 12- User displays "Update Assigned Vehicle" page.
+        String actualPage = assignedVehicle.labelUpdateAssignedVehicle.getText();
+        String expectedPage = "Update Assigned Vehicle";
+        softAssert.assertEquals(actualPage, expectedPage, "User DID NOT display the 'Update Assigned Vehicle' page!");
+
         // 13- User clicks on "Trip" menu.
         // 14- User selects an updated option.
+        Select selectTrip = new Select(assignedVehicle.dropDownUpdateTrip);
+        ReusableMethods.bekle(1);
+        selectTrip.selectByVisibleText(ConfigReader.getProperty("ihsanUpdatedTripName"));
+
         // 15- User clicks on "Vehicle" menu.
         // 16- User selects an updated option.
+        Select selectVehicle = new Select(assignedVehicle.dropDownUpdateVehicle);
+        selectVehicle.selectByVisibleText(ConfigReader.getProperty("ihsanUpdatedVehicle"));
+
         // 17- User clicks on "Update" button.
-        // 18- User verifies that "Assigned vehicle update successfully" text appeared.
+        assignedVehicle.updateButton.click();
+        ReusableMethods.bekle(1);
+
+        // 18- User verifies that "Assigned vehicle update successfully." text appeared.
+        String actualText = assignedVehicle.labelUpdate.getText();
+        String expectedText = "Assigned vehicle update successfully.";
+        softAssert.assertEquals(actualText, expectedText, "'Assigned vehicle update successfully.' DID NOT appear!");
+
         // 19- User verifies that the vehicle is updated.
+        String actualUpdate = assignedVehicle.newTripElement.getText();
+        String expectedUpdate = ConfigReader.getProperty("ihsanUpdatedTripName");
+        softAssert.assertEquals(actualUpdate, expectedUpdate, "'Vehicle' IS NOT updated!");
+
         // 20- User clicks on "Disable" button.
+
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 }
