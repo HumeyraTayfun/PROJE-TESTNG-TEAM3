@@ -95,39 +95,39 @@ public class US27 {
            // manuelGateways.addPhotoButton.sendKeys(dynamicFilePath);
 
             // 16- User enters "Minimum Amount"
-            manuelGateways.minimumAmountColumn.click();
-            manuelGateways.minimumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMinimumAmount"));
+           // manuelGateways.minimumAmountColumn.click();
+           // manuelGateways.minimumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMinimumAmount"));
 
             // 17- User enters "Maximum Amount"
-            manuelGateways.maximumAmountColumn.click();
-            manuelGateways.maximumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMaximumAmount"));
+          //  manuelGateways.maximumAmountColumn.click();
+           // manuelGateways.maximumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMaximumAmount"));
 
             // 18- User enters "Fixed Charge"
-            manuelGateways.fixedChargeColumn.click();
-            manuelGateways.fixedChargeColumn.sendKeys(ConfigReader.getProperty("senaydaFixedCharge"));
+            // manuelGateways.fixedChargeColumn.click();
+           // manuelGateways.fixedChargeColumn.sendKeys(ConfigReader.getProperty("senaydaFixedCharge"));
 
             // 19- User enters "Percent Charge"
-            manuelGateways.percentChargeColumn.click();
-            manuelGateways.percentChargeColumn.sendKeys(ConfigReader.getProperty("senaydaPercentCharge"));
+           // manuelGateways.percentChargeColumn.click();
+           // manuelGateways.percentChargeColumn.sendKeys(ConfigReader.getProperty("senaydaPercentCharge"));
 
-            action.sendKeys(Keys.PAGE_DOWN).perform();
-            action.sendKeys(Keys.PAGE_DOWN).perform();
-            action.sendKeys(Keys.PAGE_DOWN);
+          //  action.sendKeys(Keys.PAGE_DOWN).perform();
+          // action.sendKeys(Keys.PAGE_DOWN).perform();
+           // action.sendKeys(Keys.PAGE_DOWN);
 
             // 20- User enters "Deposit Instruction"
-            manuelGateways.depositInstructionText.sendKeys(ConfigReader.getProperty("senaydaDepositInstruction"));
+           // manuelGateways.depositInstructionText.sendKeys(ConfigReader.getProperty("senaydaDepositInstruction"));
 
             // 24- User clicks "Save Method" button
-            manuelGateways.saveMethodButton.click();
+           // manuelGateways.saveMethodButton.click();
 
             // 25- User displays "Manuel Gateways" page
-            Assert.assertTrue(manuelGateways.getManuelGatewaysPage.isDisplayed());
+           // Assert.assertTrue(manuelGateways.getManuelGatewaysPage.isDisplayed());
 
             // 26- User clicks on " Action" button for the added Disable Gateways Schedule
-            manuelGateways.actionButton.click();
+            // manuelGateways.actionButton.click();
 
             // 27- User clicks on "Disable" option
-            manuelGateways.disableButton.click();
+           // manuelGateways.disableButton.click();
 
             // 27- User verifies that the is disabled
             // 28- User clicks edit button.

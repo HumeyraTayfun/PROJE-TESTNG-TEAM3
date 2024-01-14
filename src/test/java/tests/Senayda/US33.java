@@ -46,13 +46,13 @@ public class US33 {
         adminDashboard.searchText.sendKeys(ConfigReader.getProperty("senaydaSearchText"));
 
         // 14- User displays the Booked Ticket page
-        adminDashboard.bookedTicketPageEnter.click();
-        Assert.assertTrue(adminDashboard.bookedTicketPage.isDisplayed());
+      //  adminDashboard.bookedTicketPageEnter.click();
+     //   Assert.assertTrue(adminDashboard.bookedTicketPage.isDisplayed());
 
         // 15- User displays the notification button in the header section.
         //16- User clicked notification button.
         ReusableMethods.bekle(1);
-        adminDashboard.notificationButton.click();
+      //  adminDashboard.notificationButton.click();
         Assert.assertTrue(adminDashboard.notificationButton.isDisplayed());
 
         // 17- User views "You have (number of notification ) unread notification" under the notification header

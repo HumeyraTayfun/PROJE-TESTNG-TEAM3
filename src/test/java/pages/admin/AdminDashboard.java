@@ -141,10 +141,10 @@ public class AdminDashboard {
     @FindBy (xpath = "//h6[@class='page-title']")
     public  WebElement bookedTicketPage;
 
-    @FindBy (xpath = "//div[@id='navbar_search_result_area']")
+    @FindBy (xpath = "//ul[@class='navbar_search_result']")
     public WebElement bookedTicketPageEnter;
 
-    @FindBy (xpath = "//i[@class='las la-bell text--primary']")
+    @FindBy (xpath = "(//button[@type='button'])[5]")
     public WebElement notificationButton;
 
     @FindBy (xpath = "//div[@class='dropdown-menu__header']")
