@@ -1,11 +1,13 @@
 package tests.İhsan;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.admin.AdminDashboard;
 import pages.admin.manageTrips.*;
+import pages.user.registeredUser.SupportRequests;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -631,8 +633,16 @@ public class US32 {
         ReusableMethods.adminLogin("ihsanAdminUsername" , "ihsanAdminPassword");
 
         // 8- User clicks on "Manage Trips" menu button.
+        adminDashboard.manageTripsButton.click();
+
         // 9- User clicks on "Trip" option.
+        adminDashboard.tripButton.click();
+
         // 10- User displays "Trip" page.
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.easybusticket.com/admin/manage/trip";
+        softAssert.assertEquals(actualUrl, expectedUrl, "User DID NOT display the 'Trip' page!");
+
         // 11- User clicks on "Disable" button for the added trip.
         // 12- User clicks on "Edit" button for the added trip.
         // 13- User displays "Update Trip" page.
