@@ -50,7 +50,7 @@ public class VisitorHomePage {
     @FindBy(xpath = "(//li)[13]")
     public WebElement  HeaderBlog ;
 
-    @FindBy(xpath = "(//li)[12]")
+    @FindBy(xpath = "(//li)[14]")
     public WebElement  HeaderContact ;
 
     @FindBy(xpath = "//div[@class='d-flex flex-wrap algin-items-center']")

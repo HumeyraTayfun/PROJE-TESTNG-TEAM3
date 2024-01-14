@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import pages.visitor.VisitorContact;
 import pages.visitor.VisitorHomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -90,7 +91,7 @@ public class US08 {
     public void testCase04(){
             VisitorHomePage visitorHomePage=new VisitorHomePage();
             SoftAssert softAssert1=new SoftAssert();
-
+            VisitorContact visitorContact=new VisitorContact();
             //1-User goes to the home page: https://qa.easybusticket.com/
             Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
             //2-User must click on "Allow Cookies"button.
@@ -105,7 +106,7 @@ public class US08 {
              visitorHomePage.messageEmail.sendKeys(ConfigReader.getProperty("email"));
              visitorHomePage.messageSubject.sendKeys(ConfigReader.getProperty("subject"));
              ReusableMethods.wait(2);
-             visitorHomePage.sendUsMessageButton.sendKeys(ConfigReader.getProperty("Your Message"));
+             visitorContact.messageBox.sendKeys(ConfigReader.getProperty("YourMessage"));
              ReusableMethods.wait(2);
             //5- User clicks 'Send Message' Button
             visitorHomePage.sendUsMessageButton.click();

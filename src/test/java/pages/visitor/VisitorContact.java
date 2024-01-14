@@ -64,4 +64,5 @@ public class VisitorContact {
     // "Send Us Message" button
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement sensUsMessageButton;
+
 }
