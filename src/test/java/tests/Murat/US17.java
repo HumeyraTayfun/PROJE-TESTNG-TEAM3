@@ -145,27 +145,36 @@ public class US17 {
         profile.state.sendKeys(ConfigReader.getProperty("muratState"));
 
         //22 - The user clicks on the "Zip Code" text at the top and the text box opens.
-
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        profile.labelZipCode1.click();
 
         //23 - User edits the text box containing the zip code.
-
+        profile.zipCode1.clear();
+        profile.zipCode1.sendKeys(ConfigReader.getProperty("muratZipcode1"));
 
         //24 - User clicks on the "City" text and text box opens.
-
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        profile.labelCity.click();
 
         //25 - User edits the text box containing the city.
+        profile.city.clear();
+        profile.city.sendKeys(ConfigReader.getProperty("muratCity"));
 
 
         //26 - The user clicks on the "Zip Code" text at the bottom and the text box opens.
-
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        profile.labelZipCode2.click();
 
         //27 - User edits the text box containing the zip code.
-
+        profile.zipCode2.clear();
+        profile.zipCode2.sendKeys(ConfigReader.getProperty("muratZipcode2"));
 
         //28 - User clicks "Update Profile" button.
-
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        profile.UpdateProfile.click();
 
         //29 - User sees green "Profile updated successfully" alert text.
+        softAssert.assertTrue(profile.profileUpdatedMessage.isDisplayed());
 
         Driver.quitDriver();
     }

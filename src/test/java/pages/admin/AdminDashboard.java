@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.logging.XMLFormatter;
+
 public class AdminDashboard {
     public AdminDashboard(){
         PageFactory.initElements(Driver.getDriver(),this);}
@@ -117,4 +119,33 @@ public class AdminDashboard {
     @FindBy(xpath = "//*[text()='Login By Country']")
     public  WebElement loginByCountry;
 
+    @FindBy(xpath = "//span[@class='navbar-user__name']")
+    public WebElement loggedAdmin;
+
+    @FindBy(xpath = "(//span[@class='dropdown-menu__caption'])[1]")
+    public WebElement adminProfile;
+
+    @FindBy(xpath = "(//span[@class='dropdown-menu__caption'])[1]")
+    public WebElement adminPassword;
+
+    @FindBy(xpath = "(//span[@class='dropdown-menu__caption'])[1]")
+    public WebElement adminLogout;
+
+    @FindBy(xpath = "//*[text()='Password Setting']")
+    public WebElement adminPasswordSettings;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[1]")
+    public WebElement psPassword;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[2]")
+    public WebElement psNewPassword;
+
+    @FindBy(xpath = "(//input[@class='form-control'])[3]")
+    public WebElement psConfirmPassword;
+
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    public WebElement saveChangesButton;
+
+    @FindBy(xpath = "//div[@class='iziToast-texts']")
+    public WebElement alertMessage;
 }
