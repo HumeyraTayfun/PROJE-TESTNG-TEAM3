@@ -77,7 +77,4 @@ public class Trip {
 
     @FindBy(xpath = "(//*[text()='Close'])[2]")
     public WebElement closeButton;
-
-
-
 }

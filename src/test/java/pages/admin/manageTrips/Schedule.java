@@ -47,7 +47,4 @@ public class Schedule {
 
     @FindBy(xpath = "//*[text()='Update']")
     public WebElement updateButton;
-
-
-
 }

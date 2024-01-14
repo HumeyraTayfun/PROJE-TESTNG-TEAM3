@@ -59,5 +59,4 @@ public class AssignedVehicle {
 
     @FindBy(xpath = "(//tr/td[5]/button[2])[1]")
     public WebElement disableButton;
-
 }

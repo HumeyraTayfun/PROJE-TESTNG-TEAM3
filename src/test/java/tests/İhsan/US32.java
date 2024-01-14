@@ -19,7 +19,6 @@ public class US32 {
         AdminDashboard adminDashboard = new AdminDashboard();
         Route route = new Route();
 
-
         // 1- User go to the "https://qa.easybusticket.com/admin"
         // 2- User clicks on "Username" box.
         // 3- User enters a valid username.
@@ -218,7 +217,6 @@ public class US32 {
         String expectedText = "Ticket price added successfully";
         softAssert.assertEquals(actualText, expectedText, "'Ticket price added successfully' DID NOT appear!");
 
-
         // 23- User clicks on "Go Back" button.
         ticketPrice.goBackButton.click();
 
@@ -234,7 +232,6 @@ public class US32 {
 
         softAssert.assertAll();
         Driver.quitDriver();
-
     }
 
     @Test
@@ -365,7 +362,6 @@ public class US32 {
         selectTrip.selectByValue("95");
         String tripText = assignedVehicle.labelTrip.getText();
 
-
         // 15- User clicks on "Vehicle" menu.
         // 16- User selects an option.
         Select selectVehicle = new Select(assignedVehicle.dropDownVehicle);
@@ -382,7 +378,6 @@ public class US32 {
         softAssert.assertEquals(actualText, expectedText, "'Vehicle assigned successfully' DID NOT appear!");
 
         // 19- User verifies that new vehicle is added.
-
         String actualAddition = assignedVehicle.newTripElement.getText();
         String actualAddition2 = assignedVehicle.newVehicleElement.getText();
         if (actualAddition.equals(tripText)){
@@ -393,7 +388,6 @@ public class US32 {
 
         softAssert.assertAll();
         Driver.quitDriver();
-
     }
 
     @Test
@@ -471,7 +465,6 @@ public class US32 {
 
         softAssert.assertAll();
         Driver.quitDriver();
-
     }
 
     @Test
