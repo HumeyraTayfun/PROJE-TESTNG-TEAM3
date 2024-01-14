@@ -51,7 +51,8 @@ public class AdminDashboard {
     @FindBy(xpath = "(//*[text()='View All'])[2]")
     public WebElement ViewAllTotalVerifiedUsers;
 
-    @FindBy(xpath = "//*[text()'Total Users']")
+    private final String ViewAllFilter = "/parent::*/following-sibling::*[text()='View All']";
+    @FindBy(xpath = "//*[text()='Total Users']")
     public WebElement TotalUsers;
 
     @FindBy(xpath = "(//*[text()='View All'])[1]")
@@ -120,6 +121,8 @@ public class AdminDashboard {
     @FindBy(xpath = "//*[text()='Login By Country']")
     public  WebElement loginByCountry;
 
+    @FindBy(xpath = "//*[text()='Manage Users']")
+    public WebElement  ManageUsers;
     @FindBy (xpath = "(//button[@type='button'])[3]")
     public WebElement fullScreenButton;
 
