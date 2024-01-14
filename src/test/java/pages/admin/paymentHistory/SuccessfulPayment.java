@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class SuccessfulPayment {
     public SuccessfulPayment(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -38,5 +40,5 @@ public class SuccessfulPayment {
     public WebElement labelNoPaymentFound;
 
     @FindBy(xpath = "//tbody/tr[1]/td")
-    public WebElement rowTitleList;
+    public List<WebElement> rowTitleList;
 }

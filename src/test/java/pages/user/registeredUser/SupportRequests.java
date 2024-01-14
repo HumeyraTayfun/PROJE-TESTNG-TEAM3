@@ -64,4 +64,13 @@ public class SupportRequests {
 
     @FindBy(xpath = "//*[text()='Support ticket created successfully!']")
     public WebElement alertMessage;
+
+    @FindBy(xpath = "//*[text()='Account Recovery']")
+    public WebElement labelAccountRecovery;
+
+    @FindBy(xpath = "//*[text()='Try to send again']")
+    public WebElement tryToSendAgainLink;
+
+    @FindBy(xpath = "//*[text()='Reset Password']")
+    public WebElement labelResetPassword;
 }
