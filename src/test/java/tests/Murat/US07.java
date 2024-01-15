@@ -57,7 +57,7 @@ public class US07 {
     public void testCase03(){
 
         //1 - Visitor goes to "https://qa.easybusticket.com/blog".
-        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        Driver.getDriver().get(ConfigReader.getProperty("blogUrl"));
         ReusableMethods.wait(1);
         visitorHomePage.cookiesAllow.click();
 
