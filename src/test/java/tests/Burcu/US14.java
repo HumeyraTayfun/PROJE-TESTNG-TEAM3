@@ -29,8 +29,7 @@ public class US14 {
 
         //3-User must click on header booking button.
         locator.HeaderBooking.click();
-        //4-user must click on header booking history button.
-        locator.BookingHistroyRezervasyonGecmişi.click();
+
 
 
     }

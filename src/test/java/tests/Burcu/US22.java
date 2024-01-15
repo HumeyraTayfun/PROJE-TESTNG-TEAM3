@@ -41,59 +41,69 @@ public class US22 {
     }
     @Test(priority = 1)
     public void TestCase_ViewAllTotalUsers(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "Total Users".
         adminDashboard.ViewAllTotalUsers.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test(priority = 2)
     public void TestCase_ViewAllTotalEmailUnverifiedUsers(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "TotalEmailUnverifiedUsers".
         adminDashboard.ViewAllTotalEmailUnverifiedUsers.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test
     public void TestCase_ViewAllTotalSMSUnverifiedUsers(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "TotalSMSUnverifiedUsers".
         adminDashboard.ViewAllTotalSMSUnverifiedUsers.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test
     public void TestCase_ViewAllPendingPayment(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "PendingPayment".
         adminDashboard.ViewAllPendingPayment.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test
     public void TestCase_ViewAllRejectedPayment(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "AllRejectedPayment".
         adminDashboard.ViewAllRejectedPayment.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test
     public void TestCase_ViewAllACVehicle(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "AllACVehicle".
         adminDashboard.ViewAllACVehicle.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test
     public void TestCase_ViewAllNonACVehicle(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "NonACVehicle".
         adminDashboard.ViewAllNonACVehicle.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- User displays "Manage Users" page.
         adminDashboard.ManageUsers.isDisplayed();
     }
     @Test()
     public void TestCase_ViewAllTotalCounter(){
-        //2- User clicks on "View All" button for "Total Users".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
+        //2- User clicks on "View All" button for "TotalCounter".(kullanıı toplam kullanıcı için tümünü görüntüle dügmesine tıklar)
         adminDashboard.ViewAllTotalCounter.click();
-        //3- User displays "Manage Users" page.(kullanıcı yönetıcının sayfasını göruntuler)
+        //3- Admin dashboard page should display last 30 days payment history(yönetici kontrol paneli son 30 günlük ödeme geçmişini göstermelidir.)
         adminDashboard.ManageUsers.isDisplayed();
     }
+    @Test()
+    public void TestCase_(){
+        //2- Admin dashboard page should display latest bookıng History
+        adminDashboard.lastestBookingHistory.click();
+        //3- Admin dashboard page should display last 30 days payment history(yönetici kontrol paneli son 30 günlük ödeme geçmişini göstermelidir.)
+        adminDashboard.last30daysPaymentHistory.isDisplayed();
+    }
+    }
 
-}
+
+
+
