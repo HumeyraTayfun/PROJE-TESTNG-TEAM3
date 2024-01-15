@@ -5,11 +5,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class RejectedPayment {
     public RejectedPayment(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(xpath = "(//*[text()='Rejected Payment'])[1]")
     public WebElement rejectedPaymentLink;
+
+    @FindBy(xpath = "//tbody/tr[1]/td")
+    public List<WebElement> rowTitleList;
 
 }
