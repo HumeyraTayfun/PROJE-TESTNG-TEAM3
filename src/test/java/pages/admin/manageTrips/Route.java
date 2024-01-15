@@ -56,10 +56,4 @@ public class Route {
 
     @FindBy(xpath = "//*[text()='Save Changes                                ']")
     public WebElement saveChangesButton;
-
-
-
-
-
-
 }
