@@ -1,5 +1,7 @@
 package tests.Senayda;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -7,6 +9,7 @@ import pages.admin.AdminDashboard;
 import pages.admin.paymentGateways.AutomaticGateways;
 import pages.admin.paymentGateways.ManuelGateways;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class US33 {
@@ -46,13 +49,14 @@ public class US33 {
         adminDashboard.searchText.sendKeys(ConfigReader.getProperty("senaydaSearchText"));
 
         // 14- User displays the Booked Ticket page
-      //  adminDashboard.bookedTicketPageEnter.click();
-     //   Assert.assertTrue(adminDashboard.bookedTicketPage.isDisplayed());
+          ReusableMethods.bekle(1);
+          adminDashboard.bookedTicketPageEnter.click();
+         Assert.assertTrue(adminDashboard.bookedTicketPage.isDisplayed());
 
         // 15- User displays the notification button in the header section.
         //16- User clicked notification button.
         ReusableMethods.bekle(1);
-      //  adminDashboard.notificationButton.click();
+        adminDashboard.notificationButton.click();
         Assert.assertTrue(adminDashboard.notificationButton.isDisplayed());
 
         // 17- User views "You have (number of notification ) unread notification" under the notification header
@@ -62,12 +66,18 @@ public class US33 {
         //19- User displays all notifications in the notifications header
 
         adminDashboard.viewAllNotificationText.click();
-        Assert.assertTrue(adminDashboard.viewAllNotificationText.isDisplayed());
+        ReusableMethods.bekle(1);
+        System.out.println(adminDashboard.viewAllNotificationText.getText());
+        String actualText = adminDashboard.viewAllNotificationText.getText();
+        String expectedText = "View all notification";
+        softAssert.assertEquals(actualText, expectedText, "'View notification' IS NOT disabled.");
 
         // 20- User clicks "Mark all as read" button
         adminDashboard.markAllAsReadButton.click();
 
         // 21- User displays message "Notifications read successfully"
         Assert.assertTrue(adminDashboard.notificationsReadSuccessfullyMessage.isDisplayed());
+
+        Driver.quitDriver();
     }
 }

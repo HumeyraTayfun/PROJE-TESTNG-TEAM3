@@ -98,9 +98,9 @@ public class US27 {
            // manuelGateways.minimumAmountColumn.click();
            // manuelGateways.minimumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMinimumAmount"));
 
-            // 17- User enters "Maximum Amount"
-          //  manuelGateways.maximumAmountColumn.click();
-           // manuelGateways.maximumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMaximumAmount"));
+             // 17- User enters "Maximum Amount"
+            //  manuelGateways.maximumAmountColumn.click();
+            // manuelGateways.maximumAmountColumn.sendKeys(ConfigReader.getProperty("senaydaMaximumAmount"));
 
             // 18- User enters "Fixed Charge"
             // manuelGateways.fixedChargeColumn.click();
@@ -110,7 +110,7 @@ public class US27 {
            // manuelGateways.percentChargeColumn.click();
            // manuelGateways.percentChargeColumn.sendKeys(ConfigReader.getProperty("senaydaPercentCharge"));
 
-          //  action.sendKeys(Keys.PAGE_DOWN).perform();
+          // action.sendKeys(Keys.PAGE_DOWN).perform();
           // action.sendKeys(Keys.PAGE_DOWN).perform();
            // action.sendKeys(Keys.PAGE_DOWN);
 
@@ -134,8 +134,7 @@ public class US27 {
            // 29- User changes her/his name .
            //  30- User clicks "Save Method" button.
 
-
-
+          // Driver.quitDriver();
 
         }
 }

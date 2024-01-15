@@ -141,7 +141,7 @@ public class AdminDashboard {
     @FindBy (xpath = "//h6[@class='page-title']")
     public  WebElement bookedTicketPage;
 
-    @FindBy (xpath = "//ul[@class='navbar_search_result']")
+    @FindBy (xpath = "(//a[@href='https://qa.easybusticket.com/admin/ticket/booked'])[2]")
     public WebElement bookedTicketPageEnter;
 
     @FindBy (xpath = "(//button[@type='button'])[5]")
