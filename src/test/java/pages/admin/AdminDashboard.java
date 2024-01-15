@@ -189,4 +189,45 @@ public class AdminDashboard {
     @FindBy(xpath = "//div[@class='iziToast-texts']")
     public WebElement alertMessage;
 
+    @FindBy(xpath = "//*[text()='Manage Users']")
+    public  WebElement ManageUsersClik;
+
+    @FindBy(xpath = "//*[@class='nav-link']")
+    public  WebElement allUsers;
+
+    @FindBy(xpath = "//*[text()='Active Users']")
+    public  WebElement activeUsers;
+
+    @FindBy(xpath = "(//*[text()='Banned Users'])[1]")
+    public  WebElement BannedUsers;
+
+    @FindBy(xpath = "(//*[text()='Email Unverified'])[1]")
+    public  WebElement EmailUnverified;
+
+    @FindBy(xpath = "(//*[text()='SMS Unverified'])[1]")
+    public  WebElement SMSUnverified;
+
+    @FindBy(xpath = "//input[@name='search']")
+    public  WebElement AdminAllUsersSearchBox;
+
+    @FindBy(xpath = "//div[@class='input-group-append']")
+    public  WebElement AdminAllUsersSearchBoxButton;
+
+    @FindBy(xpath = "//*[text()='Email to All']")
+    public  WebElement EmailToAllButton;
+
+    @FindBy(xpath = "//input[@type='text']")
+    public  WebElement SendEmailToAllUsersBox;
+
+    @FindBy(xpath = "//div[@contenteditable='true']")
+    public  WebElement EmailToAllMessageBox;
+
+    @FindBy(xpath = "//button[text()='Send Email']")
+    public  WebElement EmailToAllSendEmailSubmitButton;
+
+    @FindBy(xpath = "//div[@class='input-group-append']")
+    public  WebElement AdminAllUsersActionButton;
+
+    @FindBy(xpath = "//div[@class='input-group-append']")
+    public  WebElement ActionButton;
 }

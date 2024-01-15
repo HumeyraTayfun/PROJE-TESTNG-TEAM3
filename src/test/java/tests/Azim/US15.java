@@ -1,11 +1,14 @@
 package tests.Azim;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.user.UserSignIn;
+import pages.user.registeredUser.CreateSupportRequest;
 import pages.user.registeredUser.SupportRequests;
 import pages.user.registeredUser.UserDashboard;
 import pages.visitor.VisitorHomePage;
@@ -29,14 +32,13 @@ public class US15 {
     SoftAssert softAssert=new SoftAssert();
     ReusableMethods.userLogin("azimUsername","azimPassword");
 
-
-
     //9-Click on the new ticket link from the Support Request menu.
 
-
     //10-Verify that  Support Request new ticket creation page is visible successfully
+    Driver.getDriver().quit();
 
-    }
+
+}
 @Test
     public  void  test02(){
     //1-User go to the "https://qa.easybusticket.com"
@@ -57,6 +59,7 @@ public class US15 {
     userDashboard.CreateNewButton.click();
 
     //9-User clicks on the name box.
+    ReusableMethods.bekle(2);
     supportRequests.nameBox.click();
 
     //10-User on the name box  enter a valid name
@@ -66,9 +69,8 @@ public class US15 {
 
     //12-User on the Email address box  enter a valid Email address
     supportRequests.emailAdressBox.sendKeys("azimkaya3377@gmail.com");
-
-    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) Driver.getDriver();
-    javascriptExecutor.executeScript("arguments[0].scrollIntoView();",supportRequests.subjectBox);
+    Actions actions = new Actions(Driver.getDriver());
+    actions.sendKeys(Keys.PAGE_DOWN).perform();
 
     //13-User clicks on the Subject box
     supportRequests.subjectBox.click();
@@ -76,23 +78,35 @@ public class US15 {
     //14-User on the Subject box  enter a valid support
     supportRequests.subjectBox.sendKeys("support");
 
-    JavascriptExecutor javascriptExecutor1 = (JavascriptExecutor) Driver.getDriver();
-    javascriptExecutor.executeScript("arguments[0].scrollIntoView();",supportRequests.subjectBox);
+    Actions actions1 = new Actions(Driver.getDriver());
+    actions1.sendKeys(Keys.PAGE_DOWN).perform();
 
     //15-User click on priority dropdown.
     supportRequests.priorityBox.click();
     //16-User on priority dropdown and choose one
     Select select=new Select(supportRequests.priorityBox);
-    select.selectByVisibleText("2");
+    select.selectByIndex(1);
     //17-User clicks on message button.
+    supportRequests.messageBox.sendKeys("support");
+
     //18-User on message  enter her/his message
+
     //19-User clicks on "Select File" button.
     //20-"Select File"selects a valid file from her/his folder according to allowed file extensions"
-    //21-Verify that folder is selected
-    //22-User clicks on plus button(+)
+    ReusableMethods.bekle(3);
+    String dynamicFilePath = System.getProperty("user.home") + "/Downloads/logo.png";
+    supportRequests.dosyaSecBox.sendKeys(dynamicFilePath);
+
     //23-User clicks the "Submit" button.
+    Actions actions2 = new Actions(Driver.getDriver());
+    actions2.sendKeys(Keys.PAGE_DOWN).perform();
+    ReusableMethods.bekle(2);
+    supportRequests.submitButton.click();
     //24-Verify that the new request form was successfully created.
     Driver.getDriver().quit();
+
+
+
     }
     @Test
     public void test3(){
@@ -118,6 +132,47 @@ public class US15 {
         String expectedTicketUrl="https://qa.easybusticket.com/ticket";
         String actualTicketUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualTicketUrl,expectedTicketUrl,"Ticket page is not visible");
+        Driver.getDriver().quit();
+
+    }
+
+    @Test
+    public  void  test04(){
+        SupportRequests supportRequests=new SupportRequests();
+        UserDashboard userDashboard=new UserDashboard();
+        CreateSupportRequest createSupportRequest=new CreateSupportRequest();
+        //1-User go to the "https://qa.easybusticket.com"
+        //2-User clicks on "Sign In"button.
+        //3-User clicks on username box.
+        //4-User enters a valid username.
+        //5-User clicks on password box.
+        //6-User enters a valid password.
+        //7-User clicks the "Login" button.
+        ReusableMethods.userLogin("azimUsername","azimPassword");
+
+        //8-Click on the  Request link from the Support Request menu.
+        userDashboard.supportRequestButton.click();
+        supportRequests.requestLink.click();
+
+        //9-User clicks the "Action" button.
+        supportRequests.actionButton.click();
+
+        //10-User on message box enter her/his message
+        createSupportRequest.requestMesageBox.sendKeys("requestMesage");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        //11-User clicks on "Dosya Sec" button .
+        ReusableMethods.bekle(3);
+        String dynamicFilePath = System.getProperty("user.home") + "/Downloads/logo.png";
+        supportRequests.dosyaSecBox.sendKeys(dynamicFilePath);
+
+        //12-User on "Dosya Sec"button and selects a valid file from her/his folder according to allowed file extensions"
+        //13-User clicks on "Reply" button
+        createSupportRequest.requestReplyButton.click();
+
+        //14-Verify the visibility of the recording text indicating that a message has been sent
+
         Driver.getDriver().quit();
 
     }
