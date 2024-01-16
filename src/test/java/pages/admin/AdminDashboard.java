@@ -230,4 +230,12 @@ public class AdminDashboard {
 
     @FindBy(xpath = "//div[@class='input-group-append']")
     public  WebElement ActionButton;
+
+    @FindBy(xpath = "//*[text()='Counter ']")
+    public WebElement Counter;
+
+    @FindBy(xpath = "//*[text()='Add New']")
+    public WebElement AddNewDashboard;
+
+
 }
