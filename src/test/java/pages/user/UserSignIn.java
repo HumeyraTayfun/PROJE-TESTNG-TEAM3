@@ -47,4 +47,7 @@ public class UserSignIn {
 
     @FindBy(xpath = "//*[text()='Password reset email sent successfully']")
     public WebElement alertMessageText;
+
+    @FindBy(xpath = "//*[@*='https://qa.easybusticket.com']")
+    public WebElement homePageButton;
 }
