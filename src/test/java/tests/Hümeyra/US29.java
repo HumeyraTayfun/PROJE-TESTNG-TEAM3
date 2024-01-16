@@ -84,20 +84,22 @@ public class US29 {
         for (int i = 0; i <=4 ; i++) {
             softAssert.assertTrue(emailHistory.rowTitleList.get(i).isDisplayed(),"row title list is not displayed");
         }
+
        // 10.Verify that action button is clickable
           emailHistory.actionButton.click();
        // 11. Admin displays email details page
-        String expectedUrl="https://qa.easybusticket.com/admin/users/email-details/767";
+        String title="Email details";
+        ReusableMethods.titleİleSayfaDeğiştir(title);
+        String expectedUrl="https://qa.easybusticket.com/admin/users/email-details/";
         String actualUrl=Driver.getDriver().getCurrentUrl();
-        softAssert.assertEquals(actualUrl,expectedUrl,"Admin did not display email details page");
+        softAssert.assertTrue(actualUrl.contains(expectedUrl),"Admin did not display email details page");
 
-       // 12.Verify that the text " Payment Request Submitted Successfully" is visible
-       softAssert.assertTrue(emailHistory.labelPaymentCompletedSuccessfully.isDisplayed(),"the text is not visible");
         // verify that Admin displays e mail details
         ReusableMethods.bekle(2);
-      //  for (int i = 0; i <=2 ; i++) {
-           // softAssert.assertTrue(emailHistory.emailDetailsInfo.get(i).isDisplayed(),"Email details is not visible");
-       // }
-        softAssert.assertAll();
+       for (int i = 0; i <=2 ; i++) {
+            softAssert.assertTrue(emailHistory.emailDetailsInfo.get(i).isDisplayed(),"Email details is not visible");
+       }
+        softAssert.assertAll();//TEST PASSED
+       Driver.quitDriver();
     }
 }

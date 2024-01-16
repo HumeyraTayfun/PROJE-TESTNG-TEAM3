@@ -14,7 +14,7 @@ public class RejectedPayment {
     @FindBy(xpath = "(//*[text()='Rejected Payment'])[1]")
     public WebElement rejectedPaymentLink;
 
-    @FindBy(xpath = "//tbody/tr[1]/td")
+    @FindBy(xpath = "//thead/tr/th")
     public List<WebElement> rowTitleList;
 
 }

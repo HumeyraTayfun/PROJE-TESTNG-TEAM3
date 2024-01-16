@@ -145,12 +145,12 @@ public class US25 {
         String actualUrl=Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualUrl,expectedUrl,"Admin did not display rejected payment page");
 
-        // 10. Admin displays that all information is visible
-        for (int i = 0; i <6 ; i++) {
+        // 10. Admin displays that all title is visible
+        for (int i = 0; i <=6 ; i++) {
             softAssert.assertTrue(rejectedPayment.rowTitleList.get(i).isDisplayed(), "row title list is not displayed");
         }
         softAssert.assertAll();
-        Driver.quitDriver();
+        Driver.quitDriver();//TEST PASSED
 
         //10. Admin clicks on "Trx number/username" search box
         //11.Admin enters a valid username/trx number
@@ -196,7 +196,7 @@ public class US25 {
       //  12.Admin presses enter key
         allPayment.searchBoxIcon1.click();
       //  13. Admin displays searched  information
-        Assert.assertTrue(allPayment.labelPaymentHistorySearch.isDisplayed());
+        softAssert.assertTrue(allPayment.labelPaymentHistorySearch.isDisplayed(),"admin did not display searched info");
 
        // 14. Admin clicks on "min date-max date" search button
         allPayment.minDateMaxDateSearchBox.click();
@@ -211,6 +211,7 @@ public class US25 {
         allPayment.actionButton.click();
        // 18. Admin displays all details
         softAssert.assertTrue(allPayment.labelDepositViaStripeHosted.isDisplayed(),"deposit via stripe hosted is not displayed");
-        softAssert.assertAll();
+        softAssert.assertAll();//TEST PASSED
+        Driver.quitDriver();
     }
 }
