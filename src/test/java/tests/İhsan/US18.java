@@ -61,7 +61,9 @@ public class US18 {
         // 20- User verifies that "Password changes succesfully" text appeared.
         String actualText = changePassword.labelPasswordAlert.getText();
         String expectedText = "Password changes succesfully";
-        softAssert.assertEquals(actualUrl, expectedUrl, "'Password changes succesfully' text DID NOT appear!");
+        softAssert.assertEquals(actualText, expectedText, "'Password changes succesfully' text DID NOT appear!");
 
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 }

@@ -50,4 +50,31 @@ public class Trip {
 
     @FindBy(xpath = "(//tbody/tr/td)[1]")
     public WebElement newTripElement;
+
+    @FindBy(xpath = "(//tr/td/button[2])[1]")
+    public WebElement disableButton;
+
+    @FindBy(xpath = "//*[text()='Disable']")
+    public WebElement disableConfirmButton;
+
+    @FindBy(xpath = "//*[text()='Trip disabled successfully']")
+    public WebElement labelDisable;
+
+    @FindBy(xpath = " (//tr/td[4]/span)[1]")
+    public WebElement labelDisabled;
+
+    @FindBy(xpath = "(//tr/td/button[1])[1]")
+    public WebElement editButton;
+
+    @FindBy(xpath = "//*[text()=' Update Trip']")
+    public WebElement labelUpdateTrip;
+
+    @FindBy(xpath = "(//*[@*='title'])[2]")
+    public WebElement titleBox;
+
+    @FindBy(xpath = "//*[text()='Update']")
+    public WebElement updateButton;
+
+    @FindBy(xpath = "(//*[text()='Close'])[2]")
+    public WebElement closeButton;
 }

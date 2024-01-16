@@ -17,8 +17,42 @@ public class VisitorHomePage {
     @FindBy(xpath = "//*[@*='sign-in']")
     public WebElement singInButton;
 
+    @FindBy(xpath = "//*[@*='sign-up']")
+    public WebElement singUpButton;
+
     @FindBy(xpath ="(//li)[1]" )
     public WebElement HeaderPhoneNumber;
+
+    @FindBy(xpath = "//*[text()='Choose Your Ticket']")
+    public WebElement ChooseYourTicketTitle;
+
+    @FindBy(xpath = "//*[text()='Our Testimonials']")
+    public WebElement OurTestimonialsTitle;
+
+    @FindBy(xpath = "//*[@class='testimonial-wrapper']")
+    public WebElement OurTestimonialsComment;
+
+    @FindBy(xpath = "//*[@role='presentation'][1]/button")
+    public WebElement OurTestimonialsDatButton1;
+
+    @FindBy(xpath = "//*[@role='presentation'][2]/button")
+    public WebElement OurTestimonialsDatButton2;
+
+    @FindBy(xpath = "//*[@role='presentation'][3]/button")
+    public WebElement OurTestimonialsDatButton3;
+
+    @FindBy(xpath = "//*[text()='Recent Blog Post']")
+    public WebElement RecentBlogPostTitle;
+
+    @FindBy(xpath = "(//*[@class='post-content']/h4/a)[1]")
+    public WebElement RecentBlogPostTitle1;
+
+    @FindBy(xpath = "(//*[@class='post-content']/h4/a)[2]")
+    public WebElement RecentBlogPostTitle2;
+
+    @FindBy(xpath = "(//*[@class='post-content']/h4/a)[3]")
+    public WebElement RecentBlogPostTitle3;
+
 
     @FindBy(xpath = "(//li)[2]")
     public WebElement HeaderEmailAddress;
@@ -74,14 +108,35 @@ public class VisitorHomePage {
     @FindBy(xpath = "//*[text()='Get ticket now']")
     public WebElement getTicketNowButton;
 
+    @FindBy(xpath = "//*[text()='Buy Tickets']")
+    public WebElement BuyTicketsButton;
+
     @FindBy(xpath = "//li")
     public List<WebElement> listr;
 
+    @FindBy(xpath = "(//li)[3]")
+    public WebElement  HeaderTwitter;
+
     @FindBy(xpath = "(//a[@href='https://www.facebook.com'])[1]")
-    public WebElement  HeaderFacebook ;
+    public WebElement  HeaderFacebook;
 
     @FindBy(xpath = "(//li)[5]")
-    public WebElement  HeaderYoutube ;
+    public WebElement  HeaderYoutube;
+
+    @FindBy(xpath = "(//li)[6]")
+    public WebElement  HeaderInstagram;
+
+    @FindBy(xpath = "(//*[@class='social-icons']/li/a)[5]")
+    public WebElement FooterTwitter;
+
+    @FindBy(xpath = "(//*[@class='social-icons']/li/a)[6]")
+    public WebElement FooterFacebook;
+
+    @FindBy(xpath = "(//*[@class='social-icons']/li/a)[7]")
+    public WebElement FooterYoutube;
+
+    @FindBy(xpath = "(//*[@class='social-icons']/li/a)[8]")
+    public WebElement FooterInstagram;
 
     @FindBy(xpath = "//ul[@class='footer-links']//a[text()='About']")
     public WebElement footerabout;
@@ -106,6 +161,12 @@ public class VisitorHomePage {
 
     @FindBy(xpath = "(//*[@*='widget-title'])[3]")
     public WebElement footerContacınfo;
+
+    @FindBy(xpath = "(//*[@class='footer-contacts']//a)[1]")
+    public WebElement footerPhone;
+
+    @FindBy(xpath = "(//*[@class='footer-contacts']//a)[2]")
+    public WebElement footerEmail;
 
     @FindBy(xpath = "//*[@*='las la-phone']")
     public WebElement phoneAlert;
