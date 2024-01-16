@@ -229,6 +229,12 @@ public class AdminDashboard {
     @FindBy(xpath = "//i[@class='las la-desktop text--shadow']")
     public  WebElement ActionButton;
 
+    @FindBy(xpath = "//*[text()='Counter ']")
+    public WebElement Counter;
+
+    @FindBy(xpath = "//*[text()='Add New']")
+    public WebElement AddNewDashboard;
+
     @FindBy(xpath = "//tr/td[5]/a")
     public List<WebElement> ManageUsersMesageNumberList;
 }
