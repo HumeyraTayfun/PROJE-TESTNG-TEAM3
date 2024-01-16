@@ -601,7 +601,8 @@ public class US11 {
         ReusableMethods.wait(1);
 
         // 7 - Check that the mail sending tool is open.
-
+        String href = visitorHomePage.footerEmail.getAttribute("href");
+        softAssert.assertTrue(href.contains("mailto:"), "Mail sending tool is NOT open!");
 
         softAssert.assertAll();
         Driver.closeDriver();
