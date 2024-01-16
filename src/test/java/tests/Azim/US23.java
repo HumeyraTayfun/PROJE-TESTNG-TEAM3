@@ -20,28 +20,33 @@ public class US23 {
         //6-User clicks the "Login" button.
         ReusableMethods.adminLogin("azimadmin","azimAdminPassword");
 
-        //7-Click on the "Manage Users" button on the left sidebar.
+        //7-User all users, active users,banned users,  Email unverified, sms unverified sayılarını görünütler
+         for (int i = 0; i <5 ; i++) {
+            softAssert.assertTrue(adminDashboard.ManageUsersMesageNumberList.get(i).isDisplayed(),"Mesage nuber title list is not displayed");
+        }
+
+        //8-Click on the "Manage Users" button on the left sidebar.
         adminDashboard.ManageUsersClik.click();
 
-        //8-In the drop-down list that opens, click on the "all users," button.
+        //9-In the drop-down list that opens, click on the "all users," button.
         adminDashboard.allUsers.click();
 
-        //9-Verify that the "all users," page opens to display.
+        //10-Verify that the "all users," page opens to display.
         String expectedAllUsersUrl="https://qa.easybusticket.com/admin/users";
         String actualAllUsersUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualAllUsersUrl,expectedAllUsersUrl,"All Users page is not visible");
 
-        //10-User clicks on Search box.
+        //11-User clicks on Search box.
         adminDashboard.AdminAllUsersSearchBox.sendKeys("1232141@kadkaskdka.com");
-        //11- Enter valid user email address.
+        //12- Enter valid user email address.
         adminDashboard.AdminAllUsersSearchBoxButton.click();
 
-        //12-Click "Action" button.
+        //13-Click "Action" button.
         adminDashboard.ActionButton.click();
 
         ReusableMethods.bekle(2);
 
-        //13-Verify visibility of user search page detail information page
+        //14-Verify visibility of user search page detail information page
         String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
@@ -112,7 +117,7 @@ public class US23 {
         softAssert.assertEquals(actualBennadusersUrl,expectedBennadusersUrl,"Bennad users page is not visible");
 
         //11-Enter valid user email address.
-        adminDashboard.AdminAllUsersSearchBox.sendKeys("1232141@kadkaskdka.com");
+        adminDashboard.AdminAllUsersSearchBox.sendKeys("y.nevfel10@proton.me");
         adminDashboard.AdminAllUsersSearchBoxButton.click();
 
         //12-Click "Action" button.
@@ -122,6 +127,7 @@ public class US23 {
         String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
+
 
         Driver.getDriver().quit();
     }
@@ -191,7 +197,7 @@ public class US23 {
         adminDashboard.AdminAllUsersSearchBoxButton.click();
 
         //12-Click "Action" button.
-        adminDashboard.AdminAllUsersActionButton.click();
+        adminDashboard.ActionButton.click();
 
         //13-Verify visibility of user search page detail information page
         String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
