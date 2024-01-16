@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
 import java.util.logging.XMLFormatter;
 
 public class AdminDashboard {
@@ -225,10 +226,7 @@ public class AdminDashboard {
     @FindBy(xpath = "//button[text()='Send Email']")
     public  WebElement EmailToAllSendEmailSubmitButton;
 
-    @FindBy(xpath = "//div[@class='input-group-append']")
-    public  WebElement AdminAllUsersActionButton;
-
-    @FindBy(xpath = "//div[@class='input-group-append']")
+    @FindBy(xpath = "//i[@class='las la-desktop text--shadow']")
     public  WebElement ActionButton;
 
     @FindBy(xpath = "//*[text()='Counter ']")
@@ -237,5 +235,6 @@ public class AdminDashboard {
     @FindBy(xpath = "//*[text()='Add New']")
     public WebElement AddNewDashboard;
 
-
+    @FindBy(xpath = "//tr/td[5]/a")
+    public List<WebElement> ManageUsersMesageNumberList;
 }
