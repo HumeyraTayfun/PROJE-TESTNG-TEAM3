@@ -4,6 +4,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.user.UserSignUp;
+import pages.user.registeredUser.UserDashboard;
 import pages.visitor.VisitorHomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -18,10 +19,10 @@ public class US09 {
         // 2. User clicks on "Sign up" button
         VisitorHomePage visitorHomePage=new VisitorHomePage();
         visitorHomePage.HeaderSignUp.click();
-
         UserSignUp userSignUp=new UserSignUp();
         // 3.User displays " Sign up your account"
-        softAssert.assertTrue(userSignUp.labelSignUpYourAccount.isDisplayed());
+        ReusableMethods.bekle(1);
+        softAssert.assertTrue(userSignUp.labelSignUpYourAccount.isDisplayed(),"user did not display the text sign up your account");
         // 4. User clicks on firstname box and enters a valid firstname
         userSignUp.firstNameBox.click();
         userSignUp.firstNameBox.sendKeys(ConfigReader.getProperty("humeyraSignUpFirstName"));
@@ -45,6 +46,7 @@ public class US09 {
         userSignUp.passwordBox.click();
         userSignUp.passwordBox.sendKeys(ConfigReader.getProperty("humeyraSignUpInvalidPassword1"));
         // 11.User clicks on confirm password box and enter password
+        ReusableMethods.bekle(1);
         userSignUp.confirmPasswordBox.click();
         userSignUp.confirmPasswordBox.sendKeys(ConfigReader.getProperty("humeyraSignUpConfirmInvalidPassword1"));
         // 12. User clicks on Accepting all checkbox
@@ -52,9 +54,10 @@ public class US09 {
         // 13.User clicks on sign up button
         userSignUp.signUpButton.click();
         // 11.Verify that user can't register
+        ReusableMethods.bekle(1);
         String expectedText="The password must contain at least one uppercase and one lowercase letter.";
         String actualText=userSignUp.alertInvalidPassword1.getText();
-        softAssert.assertEquals(actualText,expectedText);
+        softAssert.assertEquals(actualText,expectedText,"user can register1");
         // 12. User clicks on password box and enter invalid password
         userSignUp.passwordBox.click();
         userSignUp.passwordBox.sendKeys(ConfigReader.getProperty("humeyraSignUpInvalidPassword2"));
@@ -66,9 +69,10 @@ public class US09 {
         //  15.User clicks on sign up button
         userSignUp.signUpButton.click();
         // 16.Verify that user can't register
+        ReusableMethods.bekle(1);
         String expectedAlert="The password must be at least 6 characters.";
         String actualAlert=userSignUp.alertInvalidPassword2.getText();
-        softAssert.assertEquals(actualAlert,expectedAlert);
+        softAssert.assertEquals(actualAlert,expectedAlert,"user can register2");
         // 17. User clicks on password box and enter invalid password
         userSignUp.passwordBox.click();
         userSignUp.passwordBox.sendKeys(ConfigReader.getProperty("humeyraSignUpInvalidPassword3"));
@@ -81,9 +85,10 @@ public class US09 {
         // 20.User clicks on sign up button
         userSignUp.signUpButton.click();
         //  21.Verify that user can't register
+        ReusableMethods.bekle(1);
         String expectedAlert3="The password must contain at least one number.";
         String actualAlert3=userSignUp.alertInvalidPassword3.getText();
-        softAssert.assertEquals(actualAlert3,expectedAlert3);
+        softAssert.assertEquals(actualAlert3,expectedAlert3,"user can register3");
         // 22. User clicks on password box and enter invalid password
         userSignUp.passwordBox.click();
         userSignUp.passwordBox.sendKeys(ConfigReader.getProperty("humeyraSignUpInvalidPassword4"));
@@ -95,11 +100,12 @@ public class US09 {
         //  25.User clicks on sign up button
         userSignUp.signUpButton.click();
         // 26.Verify that user can't register
+        ReusableMethods.bekle(1);
         String expectedAlert4="The password must contain at least one symbol.";
         String actualAlert4=userSignUp.alertInvalidPassword4.getText();
-        softAssert.assertEquals(actualAlert4,expectedAlert4);
-        // softAssert.assertAll();
-        Driver.closeDriver();
+        softAssert.assertEquals(actualAlert4,expectedAlert4,"user can register4");
+         softAssert.assertAll();//TEST PASSED
+       // Driver.closeDriver();
 
     }
 
@@ -145,7 +151,11 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13.Verify that user can't register
-        Driver.quitDriver();
+        String expectedUrl="https://qa.easybusticket.com/register";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualUrl,expectedUrl,"user can register");
+        softAssert.assertAll();//TEST PASSED
+       Driver.quitDriver();
     }
 
     @Test
@@ -190,6 +200,10 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13.Verify that user can't register
+        String expectedUrl="https://qa.easybusticket.com/register";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualUrl,expectedUrl,"user can register");
+        softAssert.assertAll();//TEST PASSED
         Driver.quitDriver();
 
     }
@@ -236,6 +250,10 @@ public class US09 {
 
         userSignUp.signUpButton.click();
         // 13.Verify that user can't register
+        String expectedUrl="https://qa.easybusticket.com/register";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualUrl,expectedUrl,"user can register");
+        softAssert.assertAll();//TEST PASSED
         Driver.quitDriver();
 
     }
@@ -281,10 +299,15 @@ public class US09 {
 
         // 12.User clicks on Accepting all button and clicks sign up button
         userSignUp.acceptingAllCheckbox.click();
+        ReusableMethods.bekle(1);
 
         userSignUp.signUpButton.click();
         // 13. Verify that user is in the dashboard
-        Driver.quitDriver();
+        ReusableMethods.bekle(1);
+        UserDashboard userDashboard=new UserDashboard();
+        softAssert.assertTrue(userDashboard.dashboardTitle.isDisplayed(),"user is not in the dashboard");
+        softAssert.assertAll();//TEST PASSED
+       Driver.quitDriver();
 
 
     }

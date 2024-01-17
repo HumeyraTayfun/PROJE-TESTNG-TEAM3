@@ -3,6 +3,7 @@ package tests.Hümeyra;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.user.UserSignIn;
 import pages.user.registeredUser.SupportRequests;
 import pages.visitor.VisitorHomePage;
@@ -10,6 +11,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US20 {
+    SoftAssert softAssert=new SoftAssert();
 
     @Test
     public void testCase01(){
@@ -23,7 +25,7 @@ public class US20 {
         UserSignIn userSignIn=new UserSignIn();
         userSignIn.linkForgotPassword.click();
         //4. Verify that "Reset Password" is visible
-        Assert.assertTrue(userSignIn.labelResetPassword.isDisplayed());
+       softAssert.assertTrue(userSignIn.labelResetPassword.isDisplayed(),"reset password is not visible");
        // 5. User clicks on select one box and choose username/email address
         Select select=new Select(userSignIn.selectOneBox);
         select.selectByValue("email");
@@ -36,7 +38,7 @@ public class US20 {
        // 8. Verify that "password reset email send successfully"is visible
         String expectedAlert="Password reset email sent successfully";
         String actualAlert=userSignIn.alertMessageText.getText();
-        Assert.assertEquals(actualAlert,expectedAlert);//TEST PASSED
+        softAssert.assertEquals(actualAlert,expectedAlert,"the text is not visible");//TEST PASSED
     }
 
     @Test
@@ -51,7 +53,7 @@ public class US20 {
         UserSignIn userSignIn=new UserSignIn();
         userSignIn.linkForgotPassword.click();
         //4. Verify that "Reset Password" is visible
-        Assert.assertTrue(userSignIn.labelResetPassword.isDisplayed());
+       softAssert.assertTrue(userSignIn.labelResetPassword.isDisplayed(),"the text is not visible");
         // 5. User clicks on select one box and choose username/email address
         Select select=new Select(userSignIn.selectOneBox);
         select.selectByValue("email");
@@ -64,14 +66,14 @@ public class US20 {
         // 8. Verify that "password reset email send successfully"is visible
         String expectedAlert="Password reset email sent successfully";
         String actualAlert=userSignIn.alertMessageText.getText();
-        Assert.assertEquals(actualAlert,expectedAlert);
+        softAssert.assertEquals(actualAlert,expectedAlert,"password reset email sent message is not visible");
        //   9. Verify that user is in the account recovery page
         SupportRequests supportRequests=new SupportRequests();
-            Assert.assertTrue(supportRequests.labelAccountRecovery.isDisplayed());
+            softAssert.assertTrue(supportRequests.labelAccountRecovery.isDisplayed(),"user is not in the account recovery page");
        // 10.User clicks on "try to send again" link
         supportRequests.tryToSendAgainLink.click();
        // 11. Verify that user is in the Reset password page
-        Assert.assertTrue(supportRequests.labelResetPassword.isDisplayed());
+        softAssert.assertTrue(supportRequests.labelResetPassword.isDisplayed(),"user is not in the reset password page");
        // 12.User clicks on select one box and choose email address
         Select select1=new Select(userSignIn.selectOneBox);
         select1.selectByValue("email");
@@ -82,6 +84,8 @@ public class US20 {
        // 14. Verify that "password reset email send successfully"is visible
         String expectedAlert1="Password reset email sent successfully";
         String actualAlert1=userSignIn.alertMessageText.getText();
-        Assert.assertEquals(actualAlert,expectedAlert);//TEST PASSED
+        softAssert.assertEquals(actualAlert,expectedAlert,"the text is not visible");//TEST PASSED
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 }

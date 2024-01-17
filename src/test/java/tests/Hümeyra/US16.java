@@ -30,7 +30,7 @@ public class US16 {
         supportRequests.actionButton.click();
         // 11. Verify that the details of each past request are visible
         softAssert.assertTrue(supportRequests.labelRequestMessage.isDisplayed());
-        Driver.quitDriver();
+        Driver.quitDriver();//TEST PASSED
 
     }
 
