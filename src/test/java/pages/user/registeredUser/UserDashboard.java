@@ -47,4 +47,11 @@ public class UserDashboard {
 
     @FindBy(xpath = "//a[@href='https://qa.easybusticket.com/user/profile-setting']")
     public WebElement profileLinkDropdown;
+
+    @FindBy(xpath = "(//*[text()='Profile'])[1]")
+    public WebElement profileDropdown;
+
+    @FindBy(xpath = "//*[text()='Logout']")
+    public WebElement logoutButton;
+
 }

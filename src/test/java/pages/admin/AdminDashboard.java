@@ -124,6 +124,37 @@ public class AdminDashboard {
 
     @FindBy(xpath = "//*[text()='Manage Users']")
     public WebElement  ManageUsers;
+
+    @FindBy(xpath = "//*[text()='All Users']")
+    public WebElement  AllUsers;
+
+    @FindBy(xpath = "//*[text()='Active Users']")
+    public WebElement  activeUsers;
+
+    @FindBy(xpath = "//*[text()='Banned Users']")
+    public WebElement bannedUsers;
+
+    @FindBy(xpath = "//*[text()='Email Unverified']")
+    public WebElement emailUnverified;
+
+    @FindBy(xpath = "//*[text()='SMS Unverified']")
+    public WebElement smsUnverified;
+
+    @FindBy(xpath = "//*[text()='Support Requests']")
+    public WebElement supportRequests;
+
+    @FindBy(xpath = "//*[text()='All Requests']")
+    public WebElement allRequests;
+
+    @FindBy(xpath = "//*[text()='Pending Requests']")
+    public WebElement pendingRequests;
+
+    @FindBy(xpath = "//*[text()='Closed Requests']")
+    public WebElement closedRequests;
+
+    @FindBy(xpath = "//*[text()='Answered Requests']")
+    public WebElement answeredRequests;
+
     @FindBy (xpath = "(//button[@type='button'])[3]")
     public WebElement fullScreenButton;
 
