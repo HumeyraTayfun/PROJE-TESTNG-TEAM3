@@ -4,10 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,7 +17,7 @@ public class Reporter {
     protected static ExtentHtmlReporter extentHtmlReporter; // Html raporu duzenler
 
     // Test işlemine başlamadan hemen önce (test methodundan önce değil, tüm test işleminden önce)
-    @BeforeTest(alwaysRun = true) // alwaysRun : her zaman çalıştır.
+    @BeforeMethod(alwaysRun = true) // alwaysRun : her zaman çalıştır.
     @Parameters("author")
     public void setUpTest(String author) {
         extentReports = new ExtentReports(); // Raporlamayi baslatir
@@ -58,7 +55,7 @@ public class Reporter {
 
 
     // Raporlandırmayı sonlandırmak icin
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDownTest() {
 
         extentReports.flush();
