@@ -227,9 +227,6 @@ public class AdminDashboard {
     @FindBy(xpath = "//*[@class='nav-link']")
     public  WebElement allUsers;
 
-    @FindBy(xpath = "//*[text()='Active Users']")
-    public  WebElement activeUsers;
-
     @FindBy(xpath = "(//*[text()='Banned Users'])[1]")
     public  WebElement BannedUsers;
 
