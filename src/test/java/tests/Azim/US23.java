@@ -127,8 +127,6 @@ public class US23 {
         String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
-
-
         Driver.getDriver().quit();
     }
 
@@ -166,7 +164,6 @@ public class US23 {
         String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
-
         Driver.getDriver().quit();
     }
     @Test
@@ -203,7 +200,6 @@ public class US23 {
         String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
-
         Driver.getDriver().quit();
     }
     @Test
@@ -237,8 +233,7 @@ public class US23 {
         String expectedSendPageUrl="https://qa.easybusticket.com/admin/dashboard?_token=lbcj5w67Qqgj9Tca5ZlfM4P4cL1ef903P4t7440t&subject=asfas&message=sfsdfsdf";
         String actualSendPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualSendPageUrl,expectedSendPageUrl,"Email  Users page is not sended");
-
-        //Driver.getDriver().quit();
+        Driver.getDriver().quit();
 
     }
 
