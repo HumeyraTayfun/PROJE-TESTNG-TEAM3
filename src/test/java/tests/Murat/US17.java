@@ -160,7 +160,6 @@ public class US17 {
         profile.city.clear();
         profile.city.sendKeys(ConfigReader.getProperty("muratCity"));
 
-
         //26 - The user clicks on the "Zip Code" text at the bottom and the text box opens.
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         profile.labelZipCode2.click();
@@ -257,7 +256,6 @@ public class US17 {
         profile.zipCode1.click();
 
         //23 - User edits the text box containing the zip code.
-
         profile.zipCode1.clear();
         profile.zipCode1.sendKeys(ConfigReader.getProperty("muratZipcode1"));
 

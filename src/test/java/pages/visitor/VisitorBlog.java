@@ -119,4 +119,10 @@ public class VisitorBlog {
 
     @FindBy(xpath = "//*[@class='footer-contacts']/li[3]/a")
     public WebElement FooterEmail;
+
+    @FindBy(xpath = "(//h2[@class='title'])[1]")
+    public WebElement labelBlog;
+
+    @FindBy(xpath = "//h2[@class='title']")
+    public WebElement labelBlogDetails;
 }
