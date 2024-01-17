@@ -8,6 +8,7 @@ import pages.admin.AdminDashboard;
 import pages.admin.manageFleets.FleetType;
 import pages.admin.manageFleets.SeatLayouts;
 import pages.admin.manageFleets.Vehicles;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -125,7 +126,6 @@ public class US31 {
         softAssert.assertEquals(actualSeatLayoutsDeletedUrl,expectedSeatLayoutsDeletedUrl,"Seat Layouts deleted page is not sended");
 
         //Driver.getDriver().quit();
-
     }
 
     @Test
@@ -160,8 +160,6 @@ public class US31 {
         fleetType.addFleetTypeNameBox.sendKeys("Lüx");
 
         //12-User clicks the "Seat Layout" button.
-        ReusableMethods.bekle(2);
-
         Select select=new Select(fleetType.SelectAnOptionFleetTypeBox);
         select.selectByIndex(2);
 
@@ -172,35 +170,100 @@ public class US31 {
         fleetType.SeatSofDeckBox.sendKeys("2");
 
         //15-Click "Facilities" box.
-        Select select1=new Select(fleetType.facilitiesBox);
-        select1.selectByIndex(2);
-
-
+        fleetType.removeButton.click();
+        fleetType.removeButton.click();
+        fleetType.removeButton.click();
+        fleetType.removeButton.click();
 
         //16-In the drop-down list that appears, click on the "Tea&amp;Caffe" button.
-        //17-In the drop-down list that appears, click on the "Pillow" button.
-        //18-In the drop-down list that appears, click on the "wifi" button.
-        //19-Click "AC status" button.
-        //20-Click "Save" button.
-        //21-Verify that the new Fleet Type  data page opens to display.
-        //22-Click "Action" button.
-        //23-Click "Add Fleet Type name" box User enters a valid name.
-        //24-User clicks the "Seat Layout" button.
+        Select select1=new Select(fleetType.facilitiesBox);
+        select1.selectByVisibleText("Tea &amp; Coffee");
+
+        //17-In the drop-down list that appears, click on the "Water" button.
+        Select select2=new Select(fleetType.facilitiesBox);
+        select2.selectByVisibleText("Water");
+
+        //18-In the drop-down list that appears, click on the "Pillow" button.
+        Select select3=new Select(fleetType.facilitiesBox);
+        select3.selectByVisibleText("Pillow");
+
+        //19-In the drop-down list that appears, click on the "wifi" button.
+        Select select4=new Select(fleetType.facilitiesBox);
+        select4.selectByVisibleText("Wifi");
+
+        fleetType.removeButton.click();
+        fleetType.removeButton.click();
+        fleetType.removeButton.click();
+        fleetType.removeButton.click();
+        fleetType.facilitiesBox2.click();
+
+        //20-Click "AC status" button.
+        fleetType.acStatusButton.click();
+
+        //21-Click "Save" button.
+        fleetType.submitButton.click();
+
+        //22-Verify that the new Fleet Type  data page opens to display.
+        String expectedFleetTypeDataPageUrl="https://qa.easybusticket.com/admin/manage/fleet-type";
+        String actualFleetTypeDataPageUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualFleetTypeDataPageUrl,expectedFleetTypeDataPageUrl,"Fleet Type data pagepage is not sended");
+
+        //23-Click "Action" button.
+        fleetType.ActionButton.click();
+
+        //24-Click "Add Fleet Type name" box User enters a valid name.
+        fleetType.updateFleetTypeBox.sendKeys(Keys.DELETE);
+        fleetType.updateFleetTypeBox.sendKeys("Delüx");
+
         //25-In the drop-down list that appears, click on the "Seat Layout" button.
+        Select select5=new Select(fleetType.SelectAnOptionFleetTypeBox1);
+        select5.selectByIndex(3);
+
         //26-Click "No of Deck" box.User enters a valid No of Deck.
+        fleetType.addFleetNoofDeckBox1.sendKeys(" ");
+
         //27-Click "Seats of Deck" box.User enters a valid Seats of Deck
-        //28- Click "Facilities" box.
+        fleetType.updateFleetTypeBox.sendKeys(Keys.DELETE);
+        fleetType.updateFleetTypeBox.sendKeys("1");
+
+        //28-Click "Facilities" box.
+        fleetType.removeButton1.click();
+        fleetType.removeButton1.click();
+        fleetType.removeButton1.click();
+        fleetType.removeButton1.click();
+
         //29-In the drop-down list that appears, click on the "Tea&amp;Caffe" button.
+        Select select6=new Select(fleetType.facilitiesBox4);
+        select6.selectByVisibleText("Tea &amp; Coffee");
+
         //30-In the drop-down list that appears, click on the "Pillow" button.
+        Select select7=new Select(fleetType.facilitiesBox4);
+        select7.selectByVisibleText("Water");
+
         //31-In the drop-down list that appears, click on the "wifi" button.
+        Select select8=new Select(fleetType.facilitiesBox4);
+        select8.selectByVisibleText("Pillow");
+
         //32-Click "AC status" button.
-        //33-Click "Save" button.
+        Select select9=new Select(fleetType.facilitiesBox4);
+        select9.selectByVisibleText("Wifi");
+
+        fleetType.facilitiesBox5.click();
+
+        //31-Click "AC status" button.
+        fleetType.acStatusButton1.click();
+
+        //32-Click "Save" button.
+        fleetType.submitButton1.click();
+
         //34-Verify that the update Fleet Type  data page opens to display.
+        String expectedUpdateFleetTypeDataUrl="https://qa.easybusticket.com/admin/manage/fleet-type";
+        String actualUpdateFleetTypeDataUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualUpdateFleetTypeDataUrl,expectedUpdateFleetTypeDataUrl,"Update Fleet Type  data pagepage is not sended");
+
         //35-Click "delete" button.
         //36-The user verifies that the text "fleet types deleted" appears.
-
-
-       // Driver.getDriver().quit();
+        Driver.getDriver().quit();
 
     }
 
@@ -231,47 +294,102 @@ public class US31 {
         softAssert.assertEquals(actualVehiclesUrl,expectedVehiclesUrl,"Fleet Type page is not sended");
 
         //10-Click "Search"box button.Write vehicle registration number in the search box
+        vehicles.allVehiclesSearchBox.sendKeys(ConfigReader.getProperty("otobus"));
+        vehicles.allVehiclesSearchButton.click();
 
         //11Verify that the Vihicl data page opens to display.
+        String expectedUpdatedVihicldatapageUrl="https://qa.easybusticket.com/admin/manage/fleet-type";
+        String actualVihicldatapageUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualVihicldatapageUrl,expectedUpdatedVihicldatapageUrl," Vihicl data pagepage is not sended");
 
         //12-Click "Add New"box button.
+        vehicles.addNewButton.click();
 
         //13-Click "Nick Name"box Write vehicle Nick Name  in the search box
+        vehicles.nicNameBox.sendKeys(ConfigReader.getProperty("nicName"));
 
-        //14-Click "Nick Name"box
+        //14- In the drop-down list that opens, click on the " Fleet Type" button.
+        Select select=new Select(vehicles.fleetTypeBoxSeleckBox);
+        select.selectByVisibleText("LüxDelüx");
 
-        //15-In the drop-down list that opens, click on the " Fleet Type" button.
-        //16-Click "Register No."box. Write vehicle Register No. in the search box
-        //17-Click "Engine No"box Write vehicle Engine No. in the search box
-        //18-Click "Chasis No"box .Write vehicle Chasis No. in the search box
-        //19-Click "Model No."box. Write vehicle Model No in the search box
-        //20-Click "Save"box
-        //21-Verify that the new Vihicl  data page opens to display.
-        //22-Click Action update button
-        //23-Click "Nick Name"box .Write vehicle Nick Name  in the search box
-        //24-Click "Nick Name"box
-        //25- In the drop-down list that opens, click on the " Fleet Type" button.
-        //26-Click "Register No."box .Write vehicle Register No. in the search box
-        //27-Click "Engine No"box .Write vehicle Engine No. in the search box
-        //28-Click "Chasis No"box .Write vehicle Chasis No. in the search box
-        //29-Click "Model No."box Write vehicle Model No in the search box
-        //30-Click "Save"box
-        //31-Verify that the new Vihicl  data page opens to display.
-        //32-Click Action update button
-        //33-Verify that the update new Vihicl  data page opens to display.
-        //34-Click active/disable button
-        //35-Click active alert button
-        //36-Verify that the  new active  data page opens to display.
-        //37-Click active/disable button
-        //38-Click active alert button
-        //39-Verify that the  new disabled  data page opens to display.
-        Driver.getDriver().quit();
+        //15-Click "Register No."box. Write vehicle Register No. in the search box
+        vehicles.RegisterNoBox.sendKeys(ConfigReader.getProperty("registerNo"));
+
+        //16-Click "Engine No"box Write vehicle Engine No. in the search box
+        vehicles.engineNoBox.sendKeys(ConfigReader.getProperty("engineNo"));
+
+        //17-Click "Chasis No"box .Write vehicle Chasis No. in the search box
+        vehicles.chasisNoBox.sendKeys(ConfigReader.getProperty("chasisNo"));
+
+        //18-Click "Model No."box. Write vehicle Model No in the search box
+        vehicles.modelNoBox.sendKeys(ConfigReader.getProperty("modelNo"));
+
+        //19-Click "Save"box
+        vehicles.submitButton.click();
+
+        //20-Verify that the new Vihicl  data page opens to display.
+        String expectednewVihicldataPageUrl="https://qa.easybusticket.com/admin/manage/vehicles/search?search=AB5057906737";
+        String actualnewVihicldataPageUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualnewVihicldataPageUrl,expectednewVihicldataPageUrl," new Vihicl  data page is not sended");
+
+        //21-Click Action update button
+        vehicles.actionButton.click();
+
+        //22-Click "Nick Name"box .Write vehicle Nick Name  in the search box
+        vehicles.nicNameBox1.sendKeys(Keys.DELETE);
+        vehicles.nicNameBox1.sendKeys(ConfigReader.getProperty("nicName1"));
+
+        //23-In the drop-down list that opens, click on the " Fleet Type" button.
+        Select select1=new Select(vehicles.fleetTypeBoxSeleckBox1);
+        select1.selectByVisibleText("Confort bus");
+
+        //24-Click "Register No."box .Write vehicle Register No. in the search box
+        vehicles.RegisterNoBox1.sendKeys(Keys.DELETE);
+        vehicles.RegisterNoBox1.sendKeys(ConfigReader.getProperty("registerNo1"));
+
+        //25-Click "Engine No"box .Write vehicle Engine No. in the search box
+        vehicles.engineNoBox1.sendKeys(Keys.DELETE);
+        vehicles.engineNoBox1.sendKeys(ConfigReader.getProperty("engineNo1"));
+
+        //26-Click "Chasis No"box .Write vehicle Chasis No. in the search box
+        vehicles.chasisNoBox1.sendKeys(Keys.DELETE);
+        vehicles.chasisNoBox1.sendKeys(ConfigReader.getProperty("chasisNo1"));
+
+        //27-Click "Model No."box Write vehicle Model No in the search box
+        vehicles.modelNoBox1.sendKeys(Keys.DELETE);
+        vehicles.modelNoBox1.sendKeys(ConfigReader.getProperty("modelNo1"));
+
+        //28-Click "update" button.
+        vehicles.updateButton1.click();
+
+        //29-Verify that the new Vihicl update  data page opens to display.
+        String expectednewVihiclUpdateDataUrl="https://qa.easybusticket.com/admin/manage/vehicles/search?search=AB5057906737";
+        String actualnewVihiclUpdateDataUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualnewVihiclUpdateDataUrl,expectednewVihiclUpdateDataUrl,"Vew Vihicl update  data data page is not sended");
+
+        //30-Click active/disable button
+        vehicles.statüsActionButton.click();
+
+        //31-Click active alert button
+        vehicles.disableVehicleButton.click();
+
+        //32-Verify that the  new active  data page opens to display.
+        String expectednewVihiclactiveUpdateDataUrl="https://qa.easybusticket.com/admin/manage/vehicles/search?search=AB5057906737";
+        String actualnewVihiclactiveUpdateDataUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualnewVihiclactiveUpdateDataUrl,expectednewVihiclactiveUpdateDataUrl,"Vew Vihicl update  data data page is not sended");
+
+        //33-Click active/disable button
+        vehicles.statüsActionButton.click();
+
+        //34-Click active alert button
+        vehicles.disableVehicleButton1.click();
+
+        //35-Verify that the  new disabled  data page opens to display.
+        String expectednewdisabledVihiclactiveUpdateDataUrl="https://qa.easybusticket.com/admin/manage/vehicles/search?search=AB5057906737";
+        String actualnewdisabledVihiclactiveUpdateDataUrl= Driver.getDriver().getCurrentUrl();
+        softAssert.assertEquals(actualnewdisabledVihiclactiveUpdateDataUrl,expectednewVihiclactiveUpdateDataUrl,"Vew Vihicl update  data data page is not sended");
+
+
     }
-
-
-
-
-
-
 
 }
