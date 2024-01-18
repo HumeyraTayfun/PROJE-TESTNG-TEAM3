@@ -20,8 +20,8 @@ public class US03 {
     public void testCase01(){
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Verify "Choose Your Ticket" section is visible
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -63,8 +63,8 @@ public class US03 {
     public void testCase02() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         // WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
         // 2 - Scroll down and check "Our Testimonials" titled section is visible.
@@ -106,8 +106,8 @@ public class US03 {
     public void testCase03() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Scroll down and check "Recent Blog Post" titled section is visible.
         VisitorHomePage visitorHomePage = new VisitorHomePage();

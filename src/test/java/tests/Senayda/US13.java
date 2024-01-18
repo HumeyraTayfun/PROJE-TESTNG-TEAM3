@@ -38,7 +38,7 @@ public class US13 extends Reporter {
         extentTest.info("User clicks on Sign In button.");
         visitorHomePage.singInButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 3- User displays the "Sign In" page.
         String actualUrl = Driver.getDriver().getCurrentUrl();
@@ -51,20 +51,20 @@ public class US13 extends Reporter {
         extentTest.info("User clicks on Username box, User enters a valid username.");
         userSignIn.usernameBox.sendKeys(ConfigReader.getProperty("senaydaUsername"));
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 6- User clicks on "Password" box.
         // 7- User enters a valid password.
         extentTest.info("User clicks on Password box, User enters a valid password.");
         userSignIn.passwordBox.sendKeys(ConfigReader.getProperty("senaydaPassword"));
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 8- User clicks the "Login" button.
         extentTest.info("User clicks the Login button.");
         userSignIn.loginButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 9- User displays the "Dashboard" page.
         // 10- Users navigates to the User Dashboard page.
@@ -85,7 +85,7 @@ public class US13 extends Reporter {
 
         // 12- In the booking menu, locate and click on the "Buy Ticket" link
         extentTest.info("In the booking menu, locate and click on the Buy Ticket link");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         userDashboard.bookingButton.click();
         userDashboard.buyTicketButton.click();
 
@@ -96,18 +96,20 @@ public class US13 extends Reporter {
         // 14- User enters the required ticket information (destination, date)
         extentTest.info("User enters the required ticket information (destination, date)");
         Select pickUpPoint = new Select(visitorHomePage.dropDownPickupPoint);
+        ReusableMethods.bekle(1);
         pickUpPoint.selectByVisibleText("Dallas");
         Select dropDownPoint = new Select(visitorHomePage.dropDownDroppingPoint);
+        ReusableMethods.bekle(1);
         dropDownPoint.selectByVisibleText("Austin");
         visitorHomePage.dropDownDepartureDate.sendKeys(ConfigReader.getProperty("senaydaDepartureDate"));
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 15- User clicks on the "Find Ticket" button
         extentTest.info("User clicks on the Find Ticket button");
         visitorHomePage.findTicketsButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 16- User verifies that available ticket options are displayed
         Assert.assertTrue(buyTicket.ticketOptions.isDisplayed());
@@ -118,13 +120,13 @@ public class US13 extends Reporter {
         buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
         buyTicket.selectSeatButton.sendKeys(Keys.DOWN);
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 17- User clicks on the "Select Seat" button for a chosen ticket option
         extentTest.info("User clicks on the Select Seat button for a chosen ticket option");
 
         buyTicket.selectSeatButton.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 18- User selects a gender and chooses a seat on the seat selection screen
         extentTest.info("User selects a gender and chooses a seat on the seat selection screen");
@@ -137,7 +139,7 @@ public class US13 extends Reporter {
         ReusableMethods.bekle(1);
         buyTicket.selectSeatNumberButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 19- User selects one of the available seats
         extentTest.info("User selects one of the available seats");
@@ -153,13 +155,13 @@ public class US13 extends Reporter {
         extentTest.info("User clicks on the Continue button to proceed");
         buyTicket.continueButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 21- User clicks on "Confirm" button
         extentTest.info("User clicks on Confirm button");
         buyTicket.confirmButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 23- User verifies the displayed payment amounts on the subsequent page
         Assert.assertTrue(buyTicket.paymentText.isDisplayed());
@@ -170,16 +172,16 @@ public class US13 extends Reporter {
         Assert.assertTrue(buyTicket.payNowButton.isDisplayed());
         extentTest.pass("User ensures the Pay Now button is present and functional ,User clicks on the Pay Now button");
         // javascriptExecutor.executeScript("arguments[0].scrollIntoView();", buyTicket.payNowButton);
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         buyTicket.payNowButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 26- User click on "Confirm" button to payment
         extentTest.info("User click on Confirm button to payment");
         buyTicket.confirmButton2.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 27- User confirms redirect to the payment screen
         Assert.assertTrue(buyTicket.paymentPreviewPage.isDisplayed());
@@ -193,7 +195,7 @@ public class US13 extends Reporter {
         extentTest.info("User clicks again Pay now button to continue");
         buyTicket.payNowButtonLast.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 29- User enters valid credit card information
         extentTest.info("User enters valid credit card information");
@@ -206,7 +208,7 @@ public class US13 extends Reporter {
         ReusableMethods.bekle(1);
         buyTicket.cvcButton.sendKeys(ConfigReader.getProperty("senaydaCvcCode"));
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 30- User submits the payment
         extentTest.info("User submits the payment");
@@ -215,7 +217,7 @@ public class US13 extends Reporter {
         ReusableMethods.bekle(1);
         buyTicket.stripePaymentPayButton.click();
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 31- User ensures the payment confirmation or success message is displayed.
         //32- After successful payment, User verifies that ticket details are displayed.
@@ -232,7 +234,7 @@ public class US13 extends Reporter {
         // 35- User clicks on the "Print Ticket" button next to the purchased ticket
         extentTest.info("User clicks on the Print Ticket button next to the purchased ticket");
         buyTicket.printTicketButton.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
 
         // 36- User verifies redirection to the ticket printing page and ensure the ticket details are correct
         actualUrl = Driver.getDriver().getCurrentUrl();

@@ -16,8 +16,8 @@ public class US19 {
     public void testCase01() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Click the "Sign In" button in the upper right corner.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -76,8 +76,8 @@ public class US19 {
     public void testCase02() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Click the "Sign In" button in the upper right corner.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
