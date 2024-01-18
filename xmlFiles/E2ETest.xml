@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="E2E Testi">
+
+    <test name="Bilet Alma">
+        <parameter name="author" value="QA TEAM3"></parameter>
+
+        <classes>
+            <class name="tests.Senayda.US13"></class>
+
+        </classes>
+    </test>
+</suite>
