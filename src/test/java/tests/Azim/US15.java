@@ -33,8 +33,9 @@ public class US15 {
     ReusableMethods.userLogin("azimUsername","azimPassword");
 
     //9-Click on the new ticket link from the Support Request menu.
-
     //10-Verify that  Support Request new ticket creation page is visible successfully
+
+    softAssert.assertAll();
     Driver.getDriver().quit();
 
 
@@ -103,9 +104,9 @@ public class US15 {
     ReusableMethods.bekle(2);
     supportRequests.submitButton.click();
     //24-Verify that the new request form was successfully created.
+
+    softAssert.assertAll();
     Driver.getDriver().quit();
-
-
 
     }
     @Test
@@ -129,15 +130,16 @@ public class US15 {
         supportRequests.actionButton.click();
 
         //9-Verify that the registration information of the created request can be viewed"
-        String expectedTicketUrl="https://qa.easybusticket.com/ticket";
+        String expectedTicketUrl="https://qa.easybusticket.com/ticket/view/106396";
         String actualTicketUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualTicketUrl,expectedTicketUrl,"Ticket page is not visible");
+
+        softAssert.assertAll();
         Driver.getDriver().quit();
-
     }
-
     @Test
     public  void  test04(){
+        SoftAssert softAssert=new SoftAssert();
         SupportRequests supportRequests=new SupportRequests();
         UserDashboard userDashboard=new UserDashboard();
         CreateSupportRequest createSupportRequest=new CreateSupportRequest();
@@ -173,6 +175,7 @@ public class US15 {
 
         //14-Verify the visibility of the recording text indicating that a message has been sent
 
+        softAssert.assertAll();
         Driver.getDriver().quit();
 
     }

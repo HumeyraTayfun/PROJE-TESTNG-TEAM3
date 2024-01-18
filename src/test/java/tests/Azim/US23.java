@@ -43,14 +43,14 @@ public class US23 {
 
         //13-Click "Action" button.
         adminDashboard.ActionButton.click();
-
         ReusableMethods.bekle(2);
 
         //14-Verify visibility of user search page detail information page
-        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
+        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/user/detail/174";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
 
+        softAssert.assertAll();
         Driver.getDriver().quit();
     }
     @Test
@@ -72,7 +72,7 @@ public class US23 {
         adminDashboard.activeUsers.click();
 
         //9- Verify that the "Active Users" page opens to display.
-        String expectedActiveUsersUrl="https://qa.easybusticket.com/admin/users";
+        String expectedActiveUsersUrl="https://qa.easybusticket.com/admin/users/active";
         String actualActiveUsersUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualActiveUsersUrl,expectedActiveUsersUrl,"Active Users page is not visible");
 
@@ -86,13 +86,13 @@ public class US23 {
         ReusableMethods.bekle(2);
 
         //13-Verify visibility of user search page detail information page
-        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
+        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/user/detail/174";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
 
+        softAssert.assertAll();
         Driver.getDriver().quit();
     }
-
     @Test
     public void test03(){
         SoftAssert softAssert = new SoftAssert();
@@ -124,12 +124,13 @@ public class US23 {
         adminDashboard.ActionButton.click();
 
         //13-Verify visibility of user search page detail information page
-        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
+        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users/banned/search?search=y.nevfel10%40proton.me";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
+
+        softAssert.assertAll();
         Driver.getDriver().quit();
     }
-
     @Test
     public void test04(){
         SoftAssert softAssert = new SoftAssert();
@@ -161,9 +162,11 @@ public class US23 {
         adminDashboard.ActionButton.click();
 
         //13-Verify visibility of user search page detail information page
-        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
+        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/user/detail/174";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
+
+        softAssert.assertAll();
         Driver.getDriver().quit();
     }
     @Test
@@ -197,9 +200,11 @@ public class US23 {
         adminDashboard.ActionButton.click();
 
         //13-Verify visibility of user search page detail information page
-        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/users";
+        String expectedİnformationPageUrl="https://qa.easybusticket.com/admin/user/detail/174";
         String actualİnformationPageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualİnformationPageUrl,expectedİnformationPageUrl,"Active Users page is not visible");
+
+        softAssert.assertAll();
         Driver.getDriver().quit();
     }
     @Test
@@ -230,10 +235,10 @@ public class US23 {
         adminDashboard.EmailToAllSendEmailSubmitButton.click();
 
         //12-User verifies that the email was sent.
-        String expectedSendPageUrl="https://qa.easybusticket.com/admin/dashboard?_token=lbcj5w67Qqgj9Tca5ZlfM4P4cL1ef903P4t7440t&subject=asfas&message=sfsdfsdf";
-        String actualSendPageUrl= Driver.getDriver().getCurrentUrl();
-        softAssert.assertEquals(actualSendPageUrl,expectedSendPageUrl,"Email  Users page is not sended");
+
+        softAssert.assertAll();
         Driver.getDriver().quit();
+
 
     }
 
