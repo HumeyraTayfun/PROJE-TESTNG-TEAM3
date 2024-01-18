@@ -22,7 +22,7 @@ public class BuyTicket {
     @FindBy (xpath = "//input[@id='female']")
     public WebElement checkBoxFemale;
 
-    @FindBy (xpath = "(//span[@class='seat'])[30]")
+    @FindBy (xpath = "(//span[@class='seat'])[25]")
     public WebElement selectSeatNumberButton;
 
     @FindBy (xpath = "(//div/div/span/span)[7]")

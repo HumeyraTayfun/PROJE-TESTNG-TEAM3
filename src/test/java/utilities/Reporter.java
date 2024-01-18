@@ -18,12 +18,12 @@ public class Reporter {
 
     // Test işlemine başlamadan hemen önce (test methodundan önce değil, tüm test işleminden önce)
     @BeforeMethod(alwaysRun = true) // alwaysRun : her zaman çalıştır.
-    @Parameters("author")
-    public void setUpTest(String author) {
+    @Parameters({"author", "test"})
+    public void setUpTest(String author, String test) {
         extentReports = new ExtentReports(); // Raporlamayi baslatir
         //rapor oluştuktan sonra raporunuz nereye eklensin istiyorsanız buraya yazıyorsunuz.
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        String filePath = System.getProperty("user.dir") + "/test-output/" + author + "/Rapor"+date+".html";
+        String filePath = System.getProperty("user.dir") + "/test-output/" + author + "/" + test + "-report-" + ".html";
         //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz, filePath ile dosya yolunu belirliyoruz.
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);

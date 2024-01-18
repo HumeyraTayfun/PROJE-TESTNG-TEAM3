@@ -15,8 +15,8 @@ public class US11 {
     public void testCase01() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 -  Click the "Sign In" button in the upper right corner.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -55,8 +55,8 @@ public class US11 {
     public void testCase02() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
 
 
@@ -66,8 +66,8 @@ public class US11 {
     public void testCase03() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Click on the "+1 (603) 624-1800" button on the header.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -97,8 +97,8 @@ public class US11 {
     public void testCase04() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Click on the Twitter icon button on the header.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -160,8 +160,8 @@ public class US11 {
     public void testCase05() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Click on the "Sign In" button on the header.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -199,8 +199,8 @@ public class US11 {
     public void testCase06() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Click on the "About" button on the header.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -286,8 +286,8 @@ public class US11 {
     public void testCase07() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // 2 - Scroll down and check "Recent Blog Post" titled section is visible.
         VisitorHomePage visitorHomePage = new VisitorHomePage();
@@ -350,8 +350,8 @@ public class US11 {
     public void testCase08() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         ReusableMethods.wait(3);
 
@@ -425,8 +425,8 @@ public class US11 {
     public void testCase09() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         ReusableMethods.wait(3);
 
@@ -504,8 +504,8 @@ public class US11 {
     public void testCase10() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         ReusableMethods.wait(3);
 
@@ -568,8 +568,8 @@ public class US11 {
     public void testCase11() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com"
-        Driver.getDriver().get("https://qa.easybusticket.com");
+        // 1 - Go to website ConfigReader.getProperty("userUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         ReusableMethods.wait(3);
 

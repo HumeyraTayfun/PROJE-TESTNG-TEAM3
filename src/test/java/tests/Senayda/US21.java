@@ -21,12 +21,16 @@ public class US21 extends Reporter {
         extentTest.info("User go to the https://qa.easybusticket.com/admin");
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
 
+        ReusableMethods.wait(2);
+
         // 2- User clicks on "Username" box.
         // 3- User enters a valid username.
         extentTest.info("User clicks on Usernamebox." +
                 " User enters a valid username.");
         adminSignIn.usernameBox.click();
         adminSignIn.usernameBox.sendKeys(ConfigReader.getProperty("senaydaAdminUsername"));
+
+        ReusableMethods.wait(2);
 
         // 4- User clicks on "Password" box.
         // 5- User enters a valid password.
@@ -35,9 +39,13 @@ public class US21 extends Reporter {
         adminSignIn.passwordBox.click();
         adminSignIn.passwordBox.sendKeys(ConfigReader.getProperty("senaydaAdminPassword"));
 
+        ReusableMethods.wait(2);
+
         // 6- User clicks the "Login" button.
         extentTest.info("User clicks the Login button");
         adminSignIn.loginButton.click();
+
+        ReusableMethods.wait(2);
 
         // 7- User displays the "Admin Dashboard" page.
         String actualUrl = Driver.getDriver().getCurrentUrl();
@@ -48,6 +56,5 @@ public class US21 extends Reporter {
         softAssert.assertAll();
 
         extentTest.info("User close the page");
-        Driver.quitDriver();
     }
 }

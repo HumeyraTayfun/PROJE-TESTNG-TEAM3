@@ -3,11 +3,10 @@
 <suite name="E2E Testi">
 
     <test name="Bilet Alma">
-        <parameter name="author" value="QA TEAM3"></parameter>
-
+        <parameter name="author" value="qa-team3"></parameter>
+        <parameter name="test" value="e2e"></parameter>
         <classes>
             <class name="tests.Senayda.US13"></class>
-
         </classes>
     </test>
 </suite>

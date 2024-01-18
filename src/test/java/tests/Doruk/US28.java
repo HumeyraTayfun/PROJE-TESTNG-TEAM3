@@ -21,12 +21,12 @@ public class US28 {
     public void testCase01() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com/admin"
-        Driver.getDriver().get("https://qa.easybusticket.com/admin");
+        // 1 - Go to website ConfigReader.getProperty("adminUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
 
         // 2 - Check that admin login page opens.
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.easybusticket.com/admin";
+        String expectedUrl = ConfigReader.getProperty("adminUrl");
         softAssert.assertEquals(actualUrl, expectedUrl, "Admin login page DID NOT open!");
 
         // 3 - Enter a valid username to username box.
@@ -106,12 +106,12 @@ public class US28 {
     public void testCase02() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com/admin"
-        Driver.getDriver().get("https://qa.easybusticket.com/admin");
+        // 1 - Go to website ConfigReader.getProperty("adminUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
 
         // 2 - Check that admin login page opens.
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.easybusticket.com/admin";
+        String expectedUrl = ConfigReader.getProperty("adminUrl");
         softAssert.assertEquals(actualUrl, expectedUrl, "Admin login page DID NOT open!");
 
         // 3 - Enter a valid username to username box.
@@ -212,12 +212,12 @@ public class US28 {
     public void testCase03() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com/admin"
-        Driver.getDriver().get("https://qa.easybusticket.com/admin");
+        // 1 - Go to website ConfigReader.getProperty("adminUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
 
         // 2 - Check that admin login page opens.
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.easybusticket.com/admin";
+        String expectedUrl = ConfigReader.getProperty("adminUrl");
         softAssert.assertEquals(actualUrl, expectedUrl, "Admin login page DID NOT open!");
 
         // 3 - Enter a valid username to username box.
@@ -318,12 +318,12 @@ public class US28 {
     public void testCase04() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com/admin"
-        Driver.getDriver().get("https://qa.easybusticket.com/admin");
+        // 1 - Go to website ConfigReader.getProperty("adminUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
 
         // 2 - Check that admin login page opens.
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.easybusticket.com/admin";
+        String expectedUrl = ConfigReader.getProperty("adminUrl");
         softAssert.assertEquals(actualUrl, expectedUrl, "Admin login page DID NOT open!");
 
         // 3 - Enter a valid username to username box.
@@ -424,12 +424,12 @@ public class US28 {
     public void testCase05() {
         SoftAssert softAssert = new SoftAssert();
 
-        // 1 - Go to website "https://qa.easybusticket.com/admin"
-        Driver.getDriver().get("https://qa.easybusticket.com/admin");
+        // 1 - Go to website ConfigReader.getProperty("adminUrl")
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
 
         // 2 - Check that admin login page opens.
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.easybusticket.com/admin";
+        String expectedUrl = ConfigReader.getProperty("adminUrl");
         softAssert.assertEquals(actualUrl, expectedUrl, "Admin login page DID NOT open!");
 
         // 3 - Enter a valid username to username box.
