@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke Testi">
+
+    <test name="Admin Login Olma">
+        <parameter name="author" value="QA TEAM3"></parameter>
+
+        <classes>
+            <class name="tests.Murat.US34">
+                <methods>
+                    <include name="testCase04" />
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>
