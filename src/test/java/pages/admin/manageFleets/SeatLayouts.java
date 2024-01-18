@@ -27,6 +27,11 @@ public class SeatLayouts {
     @FindBy(xpath = "(//*[@type='submit'])[3]")
     public WebElement addSeatLayoutsAbdateButton;
 
-    @FindBy(xpath = "(//*[@type='submit'])[4]")
+    @FindBy(xpath = "(//button[@type='button'])[8]")
     public WebElement addSeatLayoutsDeleteButton;
+
+    @FindBy(xpath = "(//button[@type='submit'])[4]")
+    public WebElement addSeatLayoutsDeleteButton1;
+
+
 }

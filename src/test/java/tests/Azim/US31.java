@@ -14,7 +14,6 @@ import utilities.ReusableMethods;
 
 public class US31 {
 
-
     @Test
     public void test01(){
         SoftAssert softAssert = new SoftAssert();
@@ -30,7 +29,7 @@ public class US31 {
         ReusableMethods.adminLogin("azimadmin","azimAdminPassword");
 
         //7-Verify that the "Tranport Maneger" page opens to display.
-        String expectedTranportManegerUrl="https://qa.easybusticket.com/admin/manage/seat_layouts";
+        String expectedTranportManegerUrl="https://qa.easybusticket.com/admin/dashboard";
         String actualTranportManegerUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualTranportManegerUrl,expectedTranportManegerUrl,"TranportManeger page is not sended");
 
@@ -60,6 +59,7 @@ public class US31 {
         String actualVehiclesUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualVehiclesUrl,expectedVehiclesUrl,"Fleet Type page is not sended");
 
+        softAssert.assertAll();
         Driver.getDriver().quit();
     }
     @Test
@@ -119,15 +119,16 @@ public class US31 {
         //18-Click "delete" button.
         ReusableMethods.bekle(2);
         seatLayouts.addSeatLayoutsDeleteButton.click();
+        seatLayouts.addSeatLayoutsDeleteButton1.click();
 
         //19-The user verifies that the text "Seat Layouts deleted" appears.
         String expectedSeatLayoutsDeletedUrl="https://qa.easybusticket.com/admin/manage/seat_layouts";
         String actualSeatLayoutsDeletedUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualSeatLayoutsDeletedUrl,expectedSeatLayoutsDeletedUrl,"Seat Layouts deleted page is not sended");
 
-        //Driver.getDriver().quit();
+        softAssert.assertAll();
+        Driver.getDriver().quit();
     }
-
     @Test
     public void test03(){
         SoftAssert softAssert = new SoftAssert();
@@ -263,7 +264,9 @@ public class US31 {
 
         //35-Click "delete" button.
         //36-The user verifies that the text "fleet types deleted" appears.
-        Driver.getDriver().quit();
+
+        softAssert.assertAll();
+       // Driver.getDriver().quit();
 
     }
 
@@ -298,7 +301,7 @@ public class US31 {
         vehicles.allVehiclesSearchButton.click();
 
         //11Verify that the Vihicl data page opens to display.
-        String expectedUpdatedVihicldatapageUrl="https://qa.easybusticket.com/admin/manage/fleet-type";
+        String expectedUpdatedVihicldatapageUrl="https://qa.easybusticket.com/admin/manage/vehicles/search?search=AB5057906737";
         String actualVihicldatapageUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualVihicldatapageUrl,expectedUpdatedVihicldatapageUrl," Vihicl data pagepage is not sended");
 
@@ -389,7 +392,8 @@ public class US31 {
         String actualnewdisabledVihiclactiveUpdateDataUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualnewdisabledVihiclactiveUpdateDataUrl,expectednewVihiclactiveUpdateDataUrl,"Vew Vihicl update  data data page is not sended");
 
+        softAssert.assertAll();
+        Driver.getDriver().quit();
 
     }
-
 }

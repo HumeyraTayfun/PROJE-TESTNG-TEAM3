@@ -9,6 +9,7 @@ import utilities.ReusableMethods;
 
 public class US12 {
 
+@Test
     public  void  test01(){
 
         //1-User go to the "https://qa.easybusticket.com"
@@ -33,6 +34,9 @@ public class US12 {
         String actualdashboardUrl= Driver.getDriver().getCurrentUrl();
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertEquals(actualdashboardUrl,expecteddashboardUrl,"dashboard page is not visible");
+
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
     @Test
     public  void  test02(){
@@ -50,6 +54,9 @@ public class US12 {
         //8-Verify that menu dasbord button is visible successfully
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertTrue(userSignIn.HeaderDashboard.isDisplayed(),"dashboard button is not visible");
+
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 
 @Test
@@ -73,6 +80,9 @@ public class US12 {
         String expecteddashboardUrl="https://qa.easybusticket.com/user/dashboard";
         String actualdashboardUrl= Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualdashboardUrl,expecteddashboardUrl,"dashboard page is not visible");
+
+         softAssert.assertAll();
+         Driver.quitDriver();
    }
 }
 
