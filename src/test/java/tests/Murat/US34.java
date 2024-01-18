@@ -1,14 +1,16 @@
 package tests.Murat;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.admin.AdminDashboard;
 import pages.admin.AdminSignIn;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.Reporter;
 import utilities.ReusableMethods;
 
-public class US34 {
+public class US34 extends Reporter {
 
     AdminSignIn adminSignIn = new AdminSignIn();
     AdminDashboard adminDashboard = new AdminDashboard();
@@ -148,65 +150,106 @@ public class US34 {
     }
 
     @Test
-    public void testCase04(){
+    public void testCase04(){ extentTest = extentReports.createTest("Admin Password Degistirme","Admin Sifre Değiştirirken Aynı Şifreyi Tekrar Kullanamamalı");
 
         //1- User go to the "https://qa.easybusticket.com/admin".
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+        extentTest.info("User go to the https://qa.easybusticket.com/admin");
 
         //2- User clicks on "Username" box.
+        ReusableMethods.wait(1);
         adminSignIn.usernameBox.click();
+        extentTest.info("User clicks on Username box.");
 
         //3- User enters a valid username.
+        ReusableMethods.wait(1);
         adminSignIn.usernameBox.sendKeys(ConfigReader.getProperty("muratAdmin"));
+        extentTest.info("User enters a valid username.");
 
         //4- User clicks on "Password" box.
+        ReusableMethods.wait(1);
         adminSignIn.passwordBox.click();
+        extentTest.info("User clicks on Password box.");
 
         //5- User enters a valid password.
         adminSignIn.passwordBox.sendKeys(ConfigReader.getProperty("muratAdminPassword"));
+        ReusableMethods.wait(1);
+        extentTest.info("User enters a valid password.");
+        ReusableMethods.wait(1);
+
         //6- User clicks the "Login" button.
         adminSignIn.loginButton.click();
+        extentTest.info("User clicks the Login button.");
+        ReusableMethods.wait(1);
 
         //7 - Admin clicks the username on header section.
         adminDashboard.loggedAdmin.click();
+        extentTest.info("Admin clicks the username on header section.");
+        ReusableMethods.wait(1);
 
         //8 - Admin clicks on the profile link in the drop-down menu.
         adminDashboard.adminProfile.click();
+        extentTest.info("Admin clicks on the profile link in the drop-down menu.");
+        ReusableMethods.wait(1);
 
         //9 - Admin reaches "https://qa.easybusticket.com/admin/profile" page.
         softAssert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://qa.easybusticket.com/admin/profile"));
+        extentTest.pass("Admin reaches https://qa.easybusticket.com/admin/profile page.");
+        ReusableMethods.wait(1);
 
         //10 - Admin clicks "Password Settings" button.
         adminDashboard.adminPasswordSettings.click();
+        extentTest.info("Admin clicks Password Settings button.");
+        ReusableMethods.wait(1);
 
         //11 - Admin reaches "https://qa.easybusticket.com/admin/password" page.
         softAssert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://qa.easybusticket.com/admin/password"));
+        extentTest.pass("Admin reaches https://qa.easybusticket.com/admin/password page.");
+        ReusableMethods.wait(1);
 
         //12 - Admin clicks on "Password" box.
         adminDashboard.psPassword.click();
+        extentTest.info("Admin clicks on Password box.");
+        ReusableMethods.wait(1);
 
         //13 - Admin enters a valid password.
         adminDashboard.psPassword.sendKeys(ConfigReader.getProperty("muratAdminPassword"));
+        extentTest.info("Admin enters a valid password.");
+        ReusableMethods.wait(1);
 
         //14 - Admin clicks on "New Password" box.
         adminDashboard.psNewPassword.click();
+        extentTest.info("Admin clicks on New Password box.");
+        ReusableMethods.wait(1);
 
         //15 - Admin enters his/her own same password.
         adminDashboard.psNewPassword.sendKeys(ConfigReader.getProperty("muratAdminPassword"));
+        extentTest.info("Admin enters his/her own same password.");
+        ReusableMethods.wait(1);
 
         //16 - Admin clicks on "Confirm Password" box.
         adminDashboard.psConfirmPassword.click();
+        extentTest.info("Admin clicks on Confirm Password box.");
+        ReusableMethods.wait(1);
 
         //17 - Admin enters a same password again.
         adminDashboard.psConfirmPassword.sendKeys(ConfigReader.getProperty("muratAdminPassword"));
+        extentTest.info("Admin enters a same password again.");
+        ReusableMethods.wait(1);
+
 
         //18 - Admin clicks "Save Changes" button.
         adminDashboard.saveChangesButton.click();
+        extentTest.info("Admin clicks Save Changes button.");
+        ReusableMethods.wait(1);
 
         //19 - Admin should see the warning that passwords should not be the same.
         ReusableMethods.wait(1);
-        softAssert.assertTrue(adminDashboard.alertMessage.isDisplayed());
+        softAssert.assertFalse(adminDashboard.alertMessage.isDisplayed(),"Passwords should not be the same");
+        extentTest.pass("Admin should see the warning that passwords should not be the same.");
 
-        Driver.quitDriver();
+        softAssert.assertAll();
+
+        extentTest.info("User close the page");
     }
 }
