@@ -272,7 +272,5 @@ public class US34 extends Reporter {
         extentTest.info("Admin should see the warning that passwords should not be the same.");
 
         softAssert.assertAll();
-
-        extentTest.info("User close the page");
     }
 }

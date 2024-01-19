@@ -1,18 +1,20 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Smoke Testi">
-
+    <parameter name="author" value="qa-team3"></parameter>
+    <parameter name="test" value="smoke"></parameter>
     <test name="Admin Login Olma">
-        <parameter name="author" value="qa-team3"></parameter>
-        <parameter name="test" value="smoke"></parameter>
         <classes>
             <class name="tests.Senayda.US21"></class>
+        </classes>
+    </test>
+    <test name="Admin Mevcut Sifreyi Ayni Sifre ile Degistirememeli">
+        <classes>
             <class name="tests.Murat.US34">
                 <methods>
                     <include name="testCase04" />
                 </methods>
             </class>
-
         </classes>
     </test>
 </suite>
