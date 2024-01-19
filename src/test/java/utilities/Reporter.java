@@ -2,6 +2,7 @@ package utilities;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -17,13 +18,13 @@ public class Reporter {
     protected static ExtentHtmlReporter extentHtmlReporter; // Html raporu duzenler
 
     // Test işlemine başlamadan hemen önce (test methodundan önce değil, tüm test işleminden önce)
-    @BeforeMethod(alwaysRun = true) // alwaysRun : her zaman çalıştır.
+    @BeforeSuite(alwaysRun = true) // alwaysRun : her zaman çalıştır.
     @Parameters({"author", "test"})
     public void setUpTest(String author, String test) {
         extentReports = new ExtentReports(); // Raporlamayi baslatir
         //rapor oluştuktan sonra raporunuz nereye eklensin istiyorsanız buraya yazıyorsunuz.
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        String filePath = System.getProperty("user.dir") + "/test-output/" + author + "/" + test + "-report-" + ".html";
+        String filePath = System.getProperty("user.dir") + "/test-output/" + author + "/" + test + "-report-" + date + ".html";
         //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz, filePath ile dosya yolunu belirliyoruz.
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
@@ -43,11 +44,13 @@ public class Reporter {
 
         if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
             String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
-            extentTest.fail(result.getName());
             extentTest.addScreenCaptureFromPath(screenshotLocation);
             extentTest.fail(result.getThrowable());
+            extentTest.log(Status.FAIL, "Test Case is failed: " + result.getName());
         } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
-            extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
+            extentTest.log(Status.SKIP, "Test Case is passed: " + result.getName());
+        } else if (result.getStatus() == ITestResult.SUCCESS) { // eğer test başarılırsa
+            extentTest.log(Status.PASS, "Test Case is passed: " + result.getName());
         }
         Driver.closeDriver();
 
@@ -57,7 +60,6 @@ public class Reporter {
     // Raporlandırmayı sonlandırmak icin
     @AfterMethod(alwaysRun = true)
     public void tearDownTest() {
-
         extentReports.flush();
     }
 
